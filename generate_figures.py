@@ -4,19 +4,25 @@
 # This simple script produces figures for the final report. It expects two folders to
 # be downloaded from OneDrive: cropped_data and models.
 
+# gets the path for the src directory to access cnn_utils script
+import sys
+import os
+
+sys.path.append(os.path.dirname((os.getcwd())) + "/src")
+
 import pandas as pd
 import numpy as np
 from cnn_utils import *
 import altair as alt
-import os
 from matplotlib.pyplot import figure, imshow, axis, savefig
 from matplotlib.image import imread
 
+
 # create a dataframe of positive and negative examples
 # download cropped data folder from Onedrive
-pos_folder = "cropped_data/positive/raw"
-neg_folder_1 = "cropped_data/negative_combined/negative/mapped"
-neg_folder_2 = "cropped_data/negative_combined/negative/negative_unmapped"
+pos_folder = "../cropped_data/positive/raw"
+neg_folder_1 = "../cropped_data/negative_combined/negative/mapped"
+neg_folder_2 = "../cropped_data/negative_combined/negative/negative_unmapped"
 
 total_positives = len(os.listdir(pos_folder))
 total_negatives = len(os.listdir(neg_folder_1)) + len(os.listdir(neg_folder_2))
@@ -74,11 +80,13 @@ test_summary_df = pd.DataFrame(
     }
 )
 
+test_summary_df.to_csv("results/test_summary_df", index=False)
+
 # create bar chart for accuracy
 
 model_acc_bar_chart = (
     alt.Chart(test_summary_df)
-    .mark_bar()
+    .mark_bar(color="black")
     .encode(
         x=alt.X("test_accuracy", title="Test Accuracy"),
         y=alt.Y("model", title="Model", sort="x"),
@@ -92,7 +100,7 @@ model_acc_bar_chart.save("image/model_acc_bar_chart.png")
 
 model_recall_bar_chart = (
     alt.Chart(test_summary_df)
-    .mark_bar()
+    .mark_bar(color="black")
     .encode(
         x=alt.X("test_recall", title="Test Recall"),
         y=alt.Y("model", title="Model", sort="x"),
@@ -104,10 +112,10 @@ model_recall_bar_chart.save("image/model_recall_bar_chart.png")
 # get file sizes
 # get models folder from OneDrive
 file_paths = [
-    "models/trained_models_May25/resnet.pt",
-    "models/trained_models_May25/inception_bo_simple.pth",
-    "models/trained_models_June2/densenet_final.pth",
-    "models/trained_models_June2/vgg16-final.pth",
+    "../models/trained_models_May25/resnet.pt",
+    "../models/trained_models_May25/inception_bo_simple.pth",
+    "../models/trained_models_June2/densenet_final.pth",
+    "../models/trained_models_June2/vgg16-final.pth",
 ]
 
 size_df = pd.DataFrame(
