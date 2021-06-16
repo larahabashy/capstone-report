@@ -3,5 +3,5 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
 - file: capstone-report
-- file: recommendations
+- file: lit_review
 - file: glossary
