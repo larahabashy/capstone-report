@@ -1,6 +1,4 @@
-## Appendix 1
-
-*Recommendations and Limitations*
+## Recommendations and Limitations
 
 Although our project has demonstrated that machine learning can be used to detect lipohypertrophy, there are some key limitations that should be addressed before it is used in the clinical setting. These key limitations are as follows:
 

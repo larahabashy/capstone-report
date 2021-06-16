@@ -1,5 +1,6 @@
 # Final Report
 **MDS 2021 Capstone Project with the Gerontology Diabetes Research Lab (GDRL)**
+
 By: Ela Bandari, Lara Habashy, Peter Yang and Javairia Raza
 
 # Executive Summary
@@ -45,7 +46,9 @@ The augmented data is then used to train a CNN model using transfer learning. Th
 
 The model that utilizes the densenet architecture appears to be the best performing model for our dataset. Furthermore, we conducted a manual analysis of tricky negative and positive images to test model performance using an interactive interface. This application allowed us to compare how confident the models were when misclassifying cases and showcased how well DenseNet was doing. 
 In an effort to reduce the high confidence levels for misclassifications, a problem known as overfitting, we considered adding dropout layers in our CNN structure. In this case, overfitting occurs as a result of having trained our models on such a small training set. Another way to reduce overfitting is called an ensemble. However, an ensemble would not be feasible as it requires lots of resources such as enough CPU to train the models.. Although the dropout layers did manage to reduce overfitting in the models, the overall reduced accuracy was not significant enough to implement those layers in our optimal model. Also, further discussion with our capstone partner, we found that nurses are likely to avoid areas where the model is not confident altogether.To see this exploration, click here.
+
 Furthermore, as our capstone partner was far more interested in reducing false negatives, areas where insulin should not be injected, we investigated various techniques to optimize recall. Positive weight (pos_weight) is one argument of the loss function used in our CNN model which, if greater than 1, prioritizes the positive examples more such that there is a heavier penalization (loss) on labelling the positive lipohypertrophy examples incorrectly. However, this method was not implemented in our final model as it proved to be unstable. After conducting a few experiments, we found high variance in the results. To see this exploration, click here.
+
 Finally, the choice of our optimal model as DenseNet was further motivated by its size and compatibility with our data product mentioned in the next section. <insert size comparison Javairia made> Our final objective was to implement object detection into our pipeline, which allows us to identify the exact location of lipohypertrophy on a given image. We’ve seen amazing results using the YOLOv5 framework - which is one of the best available frameworks right now. (ref) First, using the annotated ultrasound images, the team created bounding boxes around the exact location of the lipohypertrophy masses in the positive training images. Next, using the YOLOv5 framework, the Yolov5m model was trained for approximately 200 epochs with an image size of 300 and a batch size of 8. The team also experimented with different training parameters to find the optimal ones and found the former specifics optimal.
 
 Result: In testing, the YOLOv5 framework was quite confident in the predictions of bounding boxes around exact locations of many of the images (numbers?). 

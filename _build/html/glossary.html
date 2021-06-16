@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recommendations and Limitations &#8212; Capstone Report</title>
+    <title>Glossary &#8212; Capstone Report</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Glossary:" href="glossary.html" />
-    <link rel="prev" title="Final Report" href="capstone-report.html" />
+    <link rel="prev" title="Recommendations and Limitations" href="recommendations.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -90,14 +89,14 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="recommendations.html">
    Recommendations and Limitations
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="glossary.html">
-   Glossary:
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Glossary
   </a>
  </li>
 </ul>
@@ -141,7 +140,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/recommendations.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/glossary.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -161,7 +160,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/larahabashy/capstone-report/issues/new?title=Issue%20on%20page%20%2Frecommendations.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/larahabashy/capstone-report/issues/new?title=Issue%20on%20page%20%2Fglossary.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -190,20 +189,19 @@
         
               <div>
                 
-  <div class="section" id="recommendations-and-limitations">
-<h1>Recommendations and Limitations<a class="headerlink" href="#recommendations-and-limitations" title="Permalink to this headline">¶</a></h1>
-<p>Although our project has demonstrated that machine learning can be used to detect lipohypertrophy, there are some key limitations that should be addressed before it is used in the clinical setting. These key limitations are as follows:</p>
-<ol class="simple">
-<li><p>Scarcity of data - We had merely 353 images to develop our model which is a small dataset in the realm of deep learning. The scarcity of our dataset caused variability in different runs of the experiments conducted. We have also noticed that our model’s performance is sensitive to data splitting (i.e. which images are in the train, validation and test folders).</p></li>
-<li><p>Limited resources - Limited computing power has been a recurrent challenge in this project and has made it difficult to experiment with tuning all the parameters of our model concurrently.</p></li>
-<li><p>Lack of Oversight - We believe that there should be an auditing process involved to ensure that our machine learning model does not propagate any biases that could cause harm to specific patient populations. It would also be useful to have other independent radiologists label the dataset in order to draw comparisons between physicians’ and algorithms’ performance.</p></li>
-</ol>
-<p>To address the limitations outlined above, our team has made the following recommendations:</p>
-<ol class="simple">
-<li><p>Addition of more labelled images – In line with the size of the dataset in similar studies (Xiao et al., 2018; Cheng &amp; Malhi, 2017), we recommend increasing the dataset to at least 1000 images.</p></li>
-<li><p>Increasing computational resources - we recommend obtaining funding for additional computing resources for both the development and deployment of future models.</p></li>
-<li><p>Add additional functionality such as native cropping.</p></li>
-</ol>
+  <div class="section" id="glossary">
+<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+<p>Recall is a ratio of true positives to false negatives with a higher score reflecting less false negatives which is of interest here
+CPU
+False positives
+False negatives
+Executable
+epochs</p>
+<p>Transfer learning - a technique that allows us to leverage models that have already been trained on thousands of images from various data sources
+Ensemble - is to average the predictions from all four models
+GANs
+YOLO
+RCNNs</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -231,8 +229,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="capstone-report.html" title="previous page">Final Report</a>
-    <a class='right-next' id="next-link" href="glossary.html" title="next page">Glossary:</a>
+    <a class='left-prev' id="prev-link" href="recommendations.html" title="previous page">Recommendations and Limitations</a>
 
         </div>
         
