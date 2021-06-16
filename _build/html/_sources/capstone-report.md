@@ -1,5 +1,5 @@
-# Final Report
-**MDS 2021 Capstone Project with the Gerontology Diabetes Research Lab (GDRL)**
+# Capstone Project Report
+## MDS 2021 Capstone Project with the Gerontology Diabetes Research Lab (GDRL)
 By: Ela Bandari, Lara Habashy, Peter Yang and Javairia Raza
 
 # Executive Summary
