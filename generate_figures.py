@@ -110,12 +110,12 @@ model_recall_bar_chart = (
 model_recall_bar_chart.save("image/model_recall_bar_chart.png")
 
 # get file sizes
-# get models folder from OneDrive
+# get trained_models folder from OneDrive
 file_paths = [
-    "../models/trained_models_May25/resnet.pt",
-    "../models/trained_models_May25/inception_bo_simple.pth",
-    "../models/trained_models_June2/densenet_final.pth",
-    "../models/trained_models_June2/vgg16-final.pth",
+    "../trained_models/trained_models_May25/resnet.pt",
+    "../trained_models/trained_models_May25/inception_bo_simple.pth",
+    "../trained_models/trained_models_June2/densenet_final.pth",
+    "../trained_models/trained_models_June2/vgg16-final.pth",
 ]
 
 size_df = pd.DataFrame(
