@@ -113,7 +113,7 @@ directive to run the code at build time:
 
 ````
 ```{code-cell}
-print("Here is some code to execute")
+df <- read.csv('results/counts_df')
 ```
 ````
 
