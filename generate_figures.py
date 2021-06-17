@@ -2,17 +2,11 @@
 # 2021-06-06
 
 # This simple script produces figures for the final report. It expects two folders to
-# be downloaded from OneDrive: cropped_data and models.
+# be downloaded from OneDrive: cropped_data and trained_models.
 
-# gets the path for the src directory to access cnn_utils script
-import sys
 import os
-
-sys.path.append(os.path.dirname((os.getcwd())) + "/src")
-
 import pandas as pd
 import numpy as np
-from cnn_utils import *
 import altair as alt
 from matplotlib.pyplot import figure, imshow, axis, savefig
 from matplotlib.image import imread
@@ -44,20 +38,6 @@ counts_df = pd.DataFrame(
 
 counts_df = counts_df.rename(index={0: "Count", 1: "Proportion"})
 counts_df.to_csv("results/counts_df")
-
-# showcase positive/negative examples
-
-files = {"Negative": "image/lipo_negative.png", "Positive": "image/lipo_positive.png"}
-
-fig = figure(figsize=(16, 12))
-for i, key in enumerate(list(files.keys())):
-    a = fig.add_subplot(1, len(files), i + 1)
-    a.set_title(key, fontsize=24)
-    image = imread(files[key])
-    imshow(image)
-    axis("off")
-
-savefig("image/lipo_example.png")
 
 # get the recall and accuracies from the respective csv files in results folder
 
