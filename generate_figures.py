@@ -8,8 +8,7 @@ import os
 import pandas as pd
 import numpy as np
 import altair as alt
-from matplotlib.pyplot import figure, imshow, axis, savefig
-from matplotlib.image import imread
+import dataframe_image as dfi
 
 
 # create a dataframe of positive and negative examples
@@ -38,6 +37,7 @@ counts_df = pd.DataFrame(
 
 counts_df = counts_df.rename(index={0: "Count", 1: "Proportion"})
 counts_df.to_csv("results/counts_df")
+dfi.export(counts_df, "image/counts_df.png")
 
 # get the recall and accuracies from the respective csv files in results folder
 
@@ -54,13 +54,14 @@ for model in models_list:
 
 test_summary_df = pd.DataFrame(
     {
-        "model": ["DenseNet", "Inception", "VGG16", "ResNet"],
-        "test_accuracy": acc_models_list,
-        "test_recall": recall_models_list,
+        "Model": ["DenseNet", "Inception", "VGG16", "ResNet"],
+        "Test Accuracy": acc_models_list,
+        "Test Recall": recall_models_list,
     }
 )
 
 test_summary_df.to_csv("results/test_summary_df", index=False)
+dfi.export(test_summary_df, "image/test_summary_df.png")
 
 # create bar chart for accuracy
 
@@ -68,8 +69,8 @@ model_acc_bar_chart = (
     alt.Chart(test_summary_df)
     .mark_bar(color="black")
     .encode(
-        x=alt.X("test_accuracy", title="Test Accuracy"),
-        y=alt.Y("model", title="Model", sort="x"),
+        x=alt.X("Test Accuracy", title="Test Accuracy"),
+        y=alt.Y("Model", title="Model", sort="x"),
     )
 )
 
@@ -82,8 +83,8 @@ model_recall_bar_chart = (
     alt.Chart(test_summary_df)
     .mark_bar(color="black")
     .encode(
-        x=alt.X("test_recall", title="Test Recall"),
-        y=alt.Y("model", title="Model", sort="x"),
+        x=alt.X("Test Recall", title="Test Recall"),
+        y=alt.Y("Model", title="Model", sort="x"),
     )
 )
 
@@ -106,5 +107,6 @@ size_df = pd.DataFrame(
         ],  # gets size and converts bytes to MB
     }
 )
-size_df = size_df.sort_values("Size (MB)")
+size_df = size_df.sort_values("Size (MB)").set_index("Model")
 size_df.to_csv("results/models_size_comparison", index=False)  # saves df to results
+dfi.export(size_df, "image/size_df.png")
