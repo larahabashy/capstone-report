@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Capstone Project Report &#8212; Capstone Report</title>
+    <title>Final Report &#8212; Capstone Report</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,6 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Literature Review" href="lit_review.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -83,10 +84,23 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   Capstone Project Report
+   Final Report
   </a>
  </li>
 </ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lit_review.html">
+   Literature Review
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="glossary.html">
+   Glossary
+  </a>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -126,9 +140,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/capstone-report.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/capstone-report.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -162,23 +176,6 @@
 
             <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/larahabashy/capstone-report/master?urlpath=tree/docs/capstone-report.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
         </div>
 
         <!-- Table of contents -->
@@ -190,13 +187,6 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mds-2021-capstone-project-with-the-gerontology-diabetes-research-lab-gdrl">
-   <em>
-    MDS 2021 Capstone Project with the Gerontology Diabetes Research Lab (GDRL)
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#executive-summary">
    Executive Summary
   </a>
@@ -207,25 +197,18 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#literature-review">
+   Literature Review
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-science-methods">
    Data Science Methods
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-table">
-     Example table
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-plots-with-figure-captions">
-     Example plots with figure captions
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-product-and-results">
-   Data product and results
+   Data Product and Results
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -249,103 +232,109 @@
         
               <div>
                 
-  <div class="section" id="capstone-project-report">
-<h1>Capstone Project Report<a class="headerlink" href="#capstone-project-report" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="mds-2021-capstone-project-with-the-gerontology-diabetes-research-lab-gdrl">
-<h2><em>MDS 2021 Capstone Project with the Gerontology Diabetes Research Lab (GDRL)</em><a class="headerlink" href="#mds-2021-capstone-project-with-the-gerontology-diabetes-research-lab-gdrl" title="Permalink to this headline">¶</a></h2>
-</div>
+  <div class="section" id="final-report">
+<h1>Final Report<a class="headerlink" href="#final-report" title="Permalink to this headline">¶</a></h1>
+<p><strong>MDS 2021 Capstone Project with the Gerontology Diabetes Research Lab (GDRL)</strong></p>
+<p>By: Ela Bandari, Lara Habashy, Peter Yang and Javairia Raza</p>
 <div class="section" id="executive-summary">
 <h2>Executive Summary<a class="headerlink" href="#executive-summary" title="Permalink to this headline">¶</a></h2>
-<p><em>A brief and high level summary of the project proposal.</em></p>
-<blockquote>
-<div><p>proposal: Subclinical lipohypertrophy is traditionally evaluated based on visual inspection or palpation. However, recent work has shown that lipohypertrophy may be detected by ultrasound imaging. The criteria used to classify lipohypertrophy using ultrasound imaging is only familiar to and implemented by a small group of physicians. In an effort to improve the accessibility and efficiency of this method of detection, our capstone partner has asked us to explore the possibility of using supervised machine learning to detect lipohypertrophy on ultrasound images.</p>
-</div></blockquote>
-<blockquote>
-<div><p>In this project, we will be creating a convolutional neural network to detect the presence of lipohypertrophy in ultrasound images. We will be testing a variety of image preprocessing and transfer learning methodologies to select our finalized machine learning pipeline. Our proposed data product is a Python application that can intake new ultrasound images and make accurate predictions on the presence or absence of lipohypertrophy.</p>
-</div></blockquote>
-<br></div>
+<p>Subclinical lipohypertrophy is traditionally evaluated based on visual inspection or palpation. Recent work has shown that lipohypertrophy may be detected by ultrasound imaging (Kapeluto et al., 2018). However, the criteria used to classify lipohypertrophy using ultrasound imaging is only familiar to and implemented by a small group of physicians (Madden, 2021). In an effort to improve the accessibility and efficiency of this method of detection, we have developed a supervised machine learning model to detect lipohypertrophy in ultrasound images.</p>
+<p>To develop our machine learning model, we tested a variety of image augmentation techniques and ultimately decided on augmenting our dataset by adding random flipping, contrast and brightness. We then fit a variety of pre-existing model architectures trained on thousands of images to our augmented dataset. We optimized the parameters by which the model learned and then carefully examined the different models’ performance and fine tuned them to our dataset before selecting the best performing model. Our final model accurately classified 76% of unseen test data. We have made our model accessible to potential users via a <a class="reference external" href="https://share.streamlit.io/xudongyang2/lipo_deployment/demo_v2.py">web interface</a>. Our work has demonstrated the potential that supervised machine learning holds in accurately detecting lipohypertrophy; however, the scarcity of the ultrasound images has been a contributor to the model’s shortcomings. We have outlined a set of recommendations for improving this project; the most notable of which is re-fitting the model using a larger dataset.</p>
+</div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p><em>The introduction should start broad, introducing the question being asked/problem needing solving and why it is important. Any relevant information to understand the question/problem and its importance should be included. This may be similar to the problem statement of the proposal, but it has most likely evolved at least a little.</em></p>
-<p><em>Over the course of the project, you’ve refined the problem statement into tangible objectives that can be directly assessed by data science techniques. Indicate these refined tangible objectives here, along with your reasoning for why these scientific objectives are useful for addressing the capstone partner’s needs. You might need to describe the available data first before outlining the scientific objectives.</em></p>
-<blockquote>
-<div><p>proposal: Lipohypertrophy is a common complication for diabetic patients who inject insulin <span id="id1">[<span>kapeluto2018ultrasound</span>]</span>. It is defined as the growth of fat cells and fibrous tissue with lowered vascularity in the skin following repeated trauma of insulin injection in the same area. Our focus is on subclinical hypertrophy which forms in the subcutaneous layer (the deepest layer of the skin) <span id="id2">[<span>boundless</span>]</span>. It is critical that insulin is not injected into areas of lipohypertrophy as it reduces the effectiveness of the insulin such that patients are unable to manage their blood sugar levels and may require more insulin to achieve the same therapeutic benefits <span id="id3">[<span>kapeluto2018ultrasound</span>]</span>. Fortunately, research by Kapeluto et al. (2018) <span id="id4">[<span>kapeluto2018ultrasound</span>]</span> has found ultrasound imaging techniques are more accurate in finding these masses than a physical examination of the body by a healthcare professional. But, currently, the criteria to classify lipohypertrophy using ultrasound imaging is only implemented by a small group of physicians <span id="id5">[<span>madden_2021</span>]</span>. To expand the usability of this criteria to a larger set of healthcare professionals, the capstone partner is interested in seeing if we could leverage supervised machine learning techniques to accurately classify the presence of lipohypertrophy given an ultrasound image.</p>
-</div></blockquote>
+<p>Subclinical lipohypertrophy is a common complication for diabetic patients who inject insulin. It is defined as the growth of fat cells and fibrous tissue in the deepest layer of the skin following repeated insulin injections in the same area. It is critical that insulin is not injected into areas of lipohypertrophy as it reduces the effectiveness of the insulin. Fortunately, research by Kapeluto et al. (2018)  has found ultrasound imaging techniques are more accurate in finding these masses than a physical examination of the body by a healthcare professional. But, currently, the criteria to classify lipohypertrophy using ultrasound imaging is only implemented by a small group of physicians. To expand the usability of this criteria to a larger set of healthcare professionals, the capstone partner is interested in seeing if we can leverage supervised machine learning techniques to accurately classify the presence of lipohypertrophy given an ultrasound image.</p>
+<div class="figure align-default" id="example">
+<a class="reference internal image-reference" href="_images/example.png"><img alt="_images/example.png" src="_images/example.png" style="height: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Some examples of images found in our dataset. Top row is negative (no lipohypertrophy present) and bottom row is positive (lipohypertrophy present) images where the yellow annotations indicate the exact area of the mass.</span><a class="headerlink" href="#example" title="Permalink to this image">¶</a></p>
+</div>
+<p>Our current dataset, as shown in Figure 2 (below), includes 218 negative images (no lipohypertrophy present) and 135 positive images (lipohypertrophy present) which is typically considered to be a very small dataset for a deep learning model.Thus, our specific data science objectives for this project include:</p>
+<ol>
+<li><p>Use the provided dataset to develop and evaluate the efficacy of an image classification model.</p>
+<p>1.1 Data Augmentations</p>
+<p>1.2 Transfer Learning</p>
+<p>1.3 Optimization of Learning</p>
+<p>1.4 Object Detection</p>
+</li>
+<li><p>Deploy the model for a non-technical audience.</p></li>
+</ol>
+<div class="figure align-default" id="counts-df">
+<a class="reference internal image-reference" href="_images/counts_df.png"><img alt="_images/counts_df.png" src="_images/counts_df.png" style="height: 100px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">The total number of positive and negative examples in our dataset.</span><a class="headerlink" href="#counts-df" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="literature-review">
+<h2>Literature Review<a class="headerlink" href="#literature-review" title="Permalink to this headline">¶</a></h2>
+<p>Throughout the project, the team has consulted literature to gain insight and direction on current practices relevant to our problem and our dataset to guide and validate our decision-making. Please see Appendix 1 for our literature review.</p>
 </div>
 <div class="section" id="data-science-methods">
 <h2>Data Science Methods<a class="headerlink" href="#data-science-methods" title="Permalink to this headline">¶</a></h2>
-<p><em>Next, describe the data science techniques you used to address the scientific objectives. In your discussion, you might want to include:</em></p>
-<p><em>Pros and cons of using this method;
-Justification over other methods;
-An indication of a method that might work better, or improvements one could make to your techniques. Also indicate the difficulties associated with making these improvements, and why you didn’t implement the improvements.</em></p>
-<div class="section" id="example-table">
-<h3>Example table<a class="headerlink" href="#example-table" title="Permalink to this headline">¶</a></h3>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>Positive</p></th>
-<th class="head"><p>Negative</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Count</p></td>
-<td><p>135</p></td>
-<td><p>128</p></td>
-</tr>
-<tr class="row-odd"><td><p>Proportion</p></td>
-<td><p>51%</p></td>
-<td><p>49%</p></td>
-</tr>
-</tbody>
-</table>
+<p>3.1 Data Preparation</p>
+<p>Given our small dataset, image augmentation techniques are used to expand the size of the training set and ideally make the model more generalizable. We explored the pytorch and the albumentations library for augmentation as they proved to improve accuracy (Al-Dhabyani et al., 2019). We also attempted to leverage a machine learning tool called autoalbument from the latter library that finds the best transformations for you. However, following several runs, the accuracy did not improve from baseline. We suspect it may be that the transformations were too complex for the model to learn anything significant. Using simpler transformations to augment the data was complemented by results found in our literature review(Esteva et al., 2017;Loey et al., 2020). A variety of classic transformations were tested and the model’s performance on these augmented datasets were documented here. The transformations that led to the best performance were adding random vertical and horizontal flipping with a probability of 50% along with random brightness and contrast.</p>
+<div class="figure align-default" id="transformation">
+<a class="reference internal image-reference" href="_images/transformed_image.png"><img alt="_images/transformed_image.png" src="_images/transformed_image.png" style="height: 200px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Image transformation.</span><a class="headerlink" href="#transformation" title="Permalink to this image">¶</a></p>
 </div>
-<div class="section" id="example-plots-with-figure-captions">
-<h3>Example plots with figure captions<a class="headerlink" href="#example-plots-with-figure-captions" title="Permalink to this headline">¶</a></h3>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">a</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s2">&quot;proposal_feature_importance.PNG&quot;</span><span class="p">)</span>
-<span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;Figure 2: Feature Importance. The lighter orange and yellow areas on the right represent areas that </span><span class="se">\n</span><span class="s2"> the baseline model thinks are important for detecting lipohypertrophy.&quot;</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">figtext</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-</pre></div>
+<p>3.2 Model Development</p>
+<p>The augmented data is then used to train a CNN model using transfer learning. There are many popular architectures for transfer learning models that have proven successful as discussed in our literature review. As such, we investigated the following structures: VGG16, ResNet, DenseNet and Inception. Each of the models were incorporated with our small dataset, trained in separate experiments utilizing techniques to optimize the parameters of the model to maximize its ability to learn. To compare the performance of the different architectures, the team considered the accuracy and recall scores of the models when tested on our test set.</p>
+<div class="figure align-default" id="acc-chart">
+<a class="reference internal image-reference" href="_images/model_acc_bar_chart.png"><img alt="_images/model_acc_bar_chart.png" src="_images/model_acc_bar_chart.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">The results of accuracy.</span><a class="headerlink" href="#acc-chart" title="Permalink to this image">¶</a></p>
 </div>
+<div class="figure align-default" id="recall-chart">
+<a class="reference internal image-reference" href="_images/model_recall_bar_chart.png"><img alt="_images/model_recall_bar_chart.png" src="_images/model_recall_bar_chart.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">The results of recall.</span><a class="headerlink" href="#recall-chart" title="Permalink to this image">¶</a></p>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">1352</span><span class="n">b7c280cf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">a</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s2">&quot;proposal_feature_importance.PNG&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;figure&#39; is not defined
-</pre></div>
+<p>The model that utilizes the densenet architecture appears to be the best performing model for our dataset. Furthermore, we conducted a manual analysis of tricky negative and positive images to test model performance using an interactive interface. This application allowed us to compare how confident the models were when misclassifying cases and showcased how well DenseNet was doing.</p>
+<p>In an effort to reduce the high confidence levels for misclassifications, a problem known as overfitting, we considered adding dropout layers in our CNN structure. In this case, overfitting occurs as a result of having trained our models on such a small training set. Another way to reduce overfitting is to average the predictions from all four models, called an ensemble. However, an ensemble would not be feasible as it requires lots of resources such as enough CPU to train the models. Although the dropout layers did manage to reduce overfitting in the models, the overall reduced accuracy was not significant enough to implement those layers in our optimal model. To see this exploration, click here.</p>
+<p>Furthermore, as our capstone partner was far more interested in reducing false negatives, areas where insulin should not be injected, we investigated various techniques to optimize recall. Positive weight (pos_weight) is one argument of the loss function used in our CNN model which, if greater than 1, prioritizes the positive examples more such that there is a heavier penalization (loss) on labelling the positive lipohypertrophy examples incorrectly. However, this method was not implemented in our final model as it proved to be unstable. After conducting a few experiments, we found high variance in the results.
+Finally, the choice of our optimal model as DenseNet was further motivated by its size and compatibility with our data product, further discussed in the data product section.</p>
+<div class="figure align-default" id="size-df">
+<a class="reference internal image-reference" href="_images/size_df.png"><img alt="_images/size_df.png" src="_images/size_df.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Size comparison.</span><a class="headerlink" href="#size-df" title="Permalink to this image">¶</a></p>
 </div>
+<p>Our next objective was to implement object detection into our pipeline, giving us the ability to identify the exact location of lipohypertrophy on unseen test images. To implement object detection using a popular framework called YOLO, first, using the annotated ultrasound images, the team created bounding boxes around the location of the lipohypertrophy masses in the positive training images. Next, using the YOLOv5 framework, the Yolov5m model was trained for approximately 200 epochs with an image size of 300 and a batch size of 8. The team also experimented with different training parameters to find the optimal ones and found the former specifics optimal.</p>
+<div class="figure align-default" id="obj-det">
+<a class="reference internal image-reference" href="_images/object_detect_example.png"><img alt="_images/object_detect_example.png" src="_images/object_detect_example.png" style="height: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Object Detection.</span><a class="headerlink" href="#obj-det" title="Permalink to this image">¶</a></p>
 </div>
-</div>
-<br></div>
 </div>
 <div class="section" id="data-product-and-results">
-<h2>Data product and results<a class="headerlink" href="#data-product-and-results" title="Permalink to this headline">¶</a></h2>
-<p><em>Describe your data product and any relevant results obtained from it. For the description of the data product, you might want to include:</em></p>
-<p><em>How you intend the partner to use the data product;
-Pros and cons of using this product/interface;
-Justification over other products/interfaces;
-An indication of a product/interface that might work better, or improvements one could make to your product/interface. Also indicate the difficulties associated with making these improvements, and why you didn’t implement the improvements.
-The description of your data product should not include an indication of how to technically use the data product, nor any other documentation to your product. Such “how-related” topics belong with the product itself (e.g., in the README). Rather, this final report should focus on the “why-related” topics to communicate the purpose of the product’s existence.</em></p>
+<h2>Data Product and Results<a class="headerlink" href="#data-product-and-results" title="Permalink to this headline">¶</a></h2>
+<p>The first deliverable of the data product is the source code including an environmental file (.yml), command-line enabled python scripts to perform train-validation-test split on image folders, modeling, evaluation, and deployment, and a Makefile that automates the entire process. The team expects our partner to use the source code to refit the lipohypertrophy classification model as more ultrasound images become available. The python scripts are built with optional arguments for model hyperparameters, which makes this a flexible tool to work with. The Makefile renders the process automatic and makes the model refitting effortless. However, the source code requires a certain degree of python and command line interface knowledge.</p>
+<p>The second deliverable is a web application for our partner to interact with the lipohypertrophy classification and object detection models. The app is deployed on Streamlit share and Heroku, free-service platforms. The team expects our partner to use this app to upload one or multiple cropped ultrasound images, select one of them with the select box, and get an instance prediction of lipohypertrophy presence and prediction confidence. Finally, if it is a positive prediction, a red box will appear on the image to indicate the proposed lipohypertrophy area. This web app has good accessibility as our partner can interact with it without IT clearance issues, thus making it easy to work with. However, the final models are hosted on Streamlite share after the team put in a special request to get more resources. After the Streamlit granted additional resources, it proved to be much faster than Heroku. Future (larger) models could be hosted on cloud based servers since they are more flexible and secure. The team has also considered creating a desktop app for Lipohypertrophy classification. A desktop app allows our partner to interact with the model without the need of internet access, and has low maintenance cost. However, downloading it from the internet requires internal IT clearance and this method was deemed less preferable by our partner.</p>
+<div class="figure align-default" id="web-app">
+<a class="reference internal image-reference" href="_images/demo_gif_v2.gif"><img alt="_images/demo_gif_v2.gif" src="_images/demo_gif_v2.gif" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Web app.</span><a class="headerlink" href="#web-app" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="conclusions-and-recommendations">
 <h2>Conclusions and recommendations<a class="headerlink" href="#conclusions-and-recommendations" title="Permalink to this headline">¶</a></h2>
-<p><em>Re-state the question being asked/problem needing solving and explain how your data product answers/solves it. Comment on how well your product answered their question/solved their problem, and discuss any limitations of the product in its ability of doing so. Describe recommendations for the partner to continue/improve the project in the future.</em></p>
+<p>In this project, we aimed to investigate whether supervised machine learning techniques could be leveraged to detect the presence of lipohypertrophy in ultrasound images. Our trained models have demonstrated that this is indeed a possibility as they are accurately predicting the presence of lipohypertrophy on 76% of previously unseen data. Furthermore, our team has developed two data products. The data products are:</p>
+<ol class="simple">
+<li><p>Well-documented source code and an automated machine learning pipeline</p></li>
+<li><p>An interactive web application</p></li>
+</ol>
+<p>The source code will allow future researchers and developers to inspect and integrate all aspects of the model. The Makefile included with the project makes it seamless to update the model with an expanded dataset. The web application allows healthcare providers to easily interact with our machine learning model to discover which sites are safe for insulin injection and which sites should be avoided.</p>
+<p>Although our project has demonstrated that machine learning can be used to detect lipohypertrophy, there are some key limitations that should be addressed before it is used in the clinical setting. These key limitations are as follows:</p>
+<ol class="simple">
+<li><p>Scarcity of data - We had merely 353 images to develop our model which is a small dataset in the realm of deep learning. The scarcity of our dataset caused variability in different runs of the experiments conducted. We have also noticed that our model’s performance is sensitive to data splitting (i.e. which images are in the training, validation and test folders).</p></li>
+<li><p>Limited resources - Limited computing power has been a recurrent challenge in this project and has made it difficult to experiment with tuning all the parameters of our model concurrently.</p></li>
+<li><p>Lack of Oversight - We believe that there should be an auditing process involved to ensure that our machine learning model does not propagate any biases that could cause harm to specific patient populations. It would also be useful to have other independent radiologists label the dataset in order to draw comparisons between physicians’ and algorithms’ performance.</p></li>
+</ol>
+<p>To address the limitations outlined above, our team has made the following recommendations:</p>
+<ol class="simple">
+<li><p>Addition of more labelled images – In line with the size of the dataset in similar studies (Xiao et al., 2018; Cheng &amp; Malhi, 2017), we recommend increasing the dataset to at least 1000 images.</p></li>
+<li><p>Increasing computational resources - we recommend obtaining funding for additional computing resources for both the development and deployment of future models.</p></li>
+<li><p>Add additional functionality such as native cropping.</p></li>
+</ol>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<br></div>
+<p>[insert here]</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -373,6 +362,7 @@ The description of your data product should not include an indication of how to 
         
         <div class='prev-next-bottom'>
             
+    <a class='right-next' id="next-link" href="lit_review.html" title="next page">Literature Review</a>
 
         </div>
         
