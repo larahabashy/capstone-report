@@ -1,3 +1,5 @@
 jupyter-book
 matplotlib
 numpy
+altair_saver
+dataframe_image
