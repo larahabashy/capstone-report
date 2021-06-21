@@ -4,13 +4,13 @@
 By: Ela Bandari, Lara Habashy, Peter Yang and Javairia Raza
 
 ## Executive Summary
-Subclinical lipohypertrophy is traditionally evaluated based on visual inspection or palpation. Recent work has shown that lipohypertrophy may be detected by ultrasound imaging{cite}`kapeluto2018ultrasound`. However, the criteria used to classify lipohypertrophy using ultrasound imaging is only familiar to and implemented by a small group of physicians{cite:ts}`madden_2021`. In an effort to improve the accessibility and efficiency of this method of detection, we have developed a supervised machine learning model to detect lipohypertrophy in ultrasound images. 
+Subclinical lipohypertrophy is traditionally evaluated based on visual inspection or palpation. Recent work has shown that lipohypertrophy may be detected by ultrasound imaging {cite}`kapeluto2018ultrasound`. However, the criteria used to classify lipohypertrophy using ultrasound imaging is only familiar to and implemented by a small group of physicians {cite:ts}`madden_2021`. In an effort to improve the accessibility and efficiency of this method of detection, we have developed a supervised machine learning model to detect lipohypertrophy in ultrasound images. 
 
 To develop our machine learning model, we tested a variety of image augmentation techniques and ultimately decided on augmenting our dataset by adding random flipping, contrast and brightness. We then fit a variety of pre-existing model architectures trained on thousands of images to our augmented dataset. We optimized the parameters by which the model learned and then carefully examined the different models’ performance and fine tuned them to our dataset before selecting the best performing model. Our final model accurately classified 76% of unseen test data. We have made our model accessible to potential users via a [web interface](https://share.streamlit.io/xudongyang2/lipo_deployment/demo_v2.py). Our work has demonstrated the potential that supervised machine learning holds in accurately detecting lipohypertrophy; however, the scarcity of the ultrasound images has been a contributor to the model’s shortcomings. We have outlined a set of recommendations for improving this project; the most notable of which is re-fitting the model using a larger dataset.
 
 
 ## Introduction
-Subclinical lipohypertrophy is a common complication for diabetic patients who inject insulin. It is defined as the growth of fat cells and fibrous tissue in the deepest layer of the skin following repeated insulin injections in the same area. It is critical that insulin is not injected into areas of lipohypertrophy as it reduces the effectiveness of the insulin. Fortunately, research by{cite}`kapeluto2018ultrasound` has found ultrasound imaging techniques are more accurate in finding these masses than a physical examination of the body by a healthcare professional. But, currently, the criteria to classify lipohypertrophy using ultrasound imaging is only implemented by a small group of physicians. To expand the usability of this criteria to a larger set of healthcare professionals, the capstone partner is interested in seeing if we can leverage supervised machine learning techniques to accurately classify the presence of lipohypertrophy given an ultrasound image.
+Subclinical lipohypertrophy is a common complication for diabetic patients who inject insulin. It is defined as the growth of fat cells and fibrous tissue in the deepest layer of the skin following repeated insulin injections in the same area. It is critical that insulin is not injected into areas of lipohypertrophy as it reduces the effectiveness of the insulin. Fortunately, research by {cite}`kapeluto2018ultrasound` has found ultrasound imaging techniques are more accurate in finding these masses than a physical examination of the body by a healthcare professional. But, currently, the criteria to classify lipohypertrophy using ultrasound imaging is only implemented by a small group of physicians. To expand the usability of this criteria to a larger set of healthcare professionals, the capstone partner is interested in seeing if we can leverage supervised machine learning techniques to accurately classify the presence of lipohypertrophy given an ultrasound image.
 
 ```{figure} image/example.png
 ---
@@ -51,9 +51,17 @@ Throughout the project, the team has consulted literature to gain insight and di
 
 ## Data Science Methods 
 
+```{figure} image/ds_workflow.png
+---
+height: 500px
+name: workflow
+---
+Our general data science workflow for the capstone project. 
+```
+
 3.1 Data Preparation
 
-Given our small dataset, image augmentation techniques are used to expand the size of the training set and ideally make the model more generalizable. We explored the pytorch and the albumentations library for augmentation as they proved to improve accuracy{cite}`al2019deep`. We also attempted to leverage a machine learning tool called autoalbument from the latter library that finds the best transformations for you. However, following several runs, the accuracy did not improve from baseline. We suspect it may be that the transformations were too complex for the model to learn anything significant. Using simpler transformations to augment the data was complemented by results found in our literature review{cite}`esteva2017, loey2020deep`. A variety of classic transformations were tested and the model’s performance on these augmented datasets were documented [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb). The transformations that led to the best performance were adding random vertical and horizontal flipping with a probability of 50% along with random brightness and contrast.
+Given our small dataset, image augmentation techniques are used to expand the size of the training set and ideally make the model more generalizable. We explored the pytorch and the albumentations library for augmentation as they proved to improve accuracy {cite}`al2019deep`. We also attempted to leverage a machine learning tool called autoalbument from the latter library that finds the best transformations for you. However, following several runs, the accuracy did not improve from baseline. We suspect it may be that the transformations were too complex for the model to learn anything significant. Using simpler transformations to augment the data was complemented by results found in our literature review {cite}`esteva2017, loey2020deep`. A variety of classic transformations were tested and the model’s performance on these augmented datasets were documented [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb). The transformations that led to the best performance were adding random vertical and horizontal flipping with a probability of 50% along with random brightness and contrast.
 
 ```{figure} image/transformed_image.png
 ---
@@ -140,11 +148,11 @@ Although our project has demonstrated that machine learning can be used to detec
 
 2. Limited resources - Limited computing power has been a recurrent challenge in this project and has made it difficult to experiment with tuning all the parameters of our model concurrently. 
 
-3. Lack of Oversight - We believe that there should be an auditing process involved to ensure that our machine learning model does not propagate any biases that could cause harm to specific patient populations. It would also be useful to have other independent radiologists label the dataset in order to draw comparisons between physicians’ and algorithms’ performance.
+3. Lack of oversight - We believe that there should be an auditing process involved to ensure that our machine learning model does not propagate any biases that could cause harm to specific patient populations. It would also be useful to have other independent radiologists label the dataset in order to draw comparisons between physicians’ and algorithms’ performance.
 
 To address the limitations outlined above, our team has made the following recommendations: 
 
-1.  Addition of more labelled images – In line with the size of the dataset in similar studies{cite}`xiao2018comparison,cheng2017transfer`, we recommend increasing the dataset to at least 1000 images.
+1.  Addition of more labelled images – In line with the size of the dataset in similar studies {cite}`xiao2018comparison,cheng2017transfer`, we recommend increasing the dataset to at least 1000 images.
 
 2.  Increasing computational resources - we recommend obtaining funding for additional computing resources for both the development and deployment of future models.
 
