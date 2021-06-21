@@ -1,4 +1,4 @@
-## Appendix 1 - Literature Review 
+## Appendix A - Literature Review 
 
 Prediction of masses in ultrasound images using machine learning techniques has been an ongoing effort in clinical practice for the past few decades. To assist physicians in diagnosing disease, many scholars have implemented techniques such as regression, decision trees, Naive Bayesian classifiers, and neural networks on patients' ultrasound imaging data{cite}`huang2018machine`. Further, many studies involving ultrasound images have preprocessed the images to extract features. This study {cite}`chiao2019detection` shows that CNNs using ultrasound images perform better than radiomic models at predicting breast cancer tumours. Another recent study shows success in classifying liver masses into 1 out 5 categories with 84% accuracy using a CNN model{cite}`yasaka2018deep`.
 
