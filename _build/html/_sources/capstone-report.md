@@ -12,14 +12,6 @@ To develop our machine learning model, we tested a variety of image augmentation
 ## Introduction
 Subclinical lipohypertrophy is a common complication for diabetic patients who inject insulin. It is defined as the growth of fat cells and fibrous tissue in the deepest layer of the skin following repeated insulin injections in the same area. It is critical that insulin is not injected into areas of lipohypertrophy as it reduces the effectiveness of the insulin. Fortunately, research by {cite:t}`kapeluto2018ultrasound` has found ultrasound imaging techniques are more accurate in finding these masses than a physical examination of the body by a healthcare professional. But, currently, the criteria to classify lipohypertrophy using ultrasound imaging is only implemented by a small group of physicians. To expand the usability of this criteria to a larger set of healthcare professionals, the capstone partner is interested in seeing if we can leverage supervised machine learning techniques to accurately classify the presence of lipohypertrophy given an ultrasound image.
 
-```{figure} https://solarsystem.nasa.gov/system/resources/detail_files/626_PIA21775.jpg
----
-height: 300px
-name: great-red-spot
----
-Jupiter's Great Red Spot! Source: [NASA](https://solarsystem.nasa.gov/resources/626/jupiters-great-red-spot-in-true-color/?category=planets_jupiter).
-```
-
 ```{figure} image/example.png
 ---
 height: 500px
@@ -141,7 +133,7 @@ The first deliverable data product is the source code including an environmental
 
 The second deliverable is a web application for our partner to interact with the lipohypertrophy classification and object detection models. The team expects our partner to use this app to upload one or multiple cropped ultrasound images, and get an instant prediction of lipohypertrophy presence along with the prediction confidence. If the prediction is positive, a red box will appear on the image to indicate the proposed lipohypertrophy area. The app is deployed on Streamlit share and Heroku, two free-service deployment platforms. The team sent a special request form to Streamlit to increase the allocated resources under Streamlit’s “good for the world” projects program. The request was approved and the app deployed on Streamlit share runs much faster in comparison to that deployed on Heroku; which now serves as a backup. Future (larger) models could be hosted on cloud based servers since they are more flexible and secure.
 
-The team and capstone partner evaluated the merits of both a desktop and web app. A desktop app would allow our partner to interact with the model without internet access, and has lower maintenance costs. However, installing the app on hospital computers requires internal IT clearance. The web app decided on the web app as it does not require IT clearance for use. The desktop app was deemed less preferable by our partner due to potential IT clearance issues.
+The team and capstone partner evaluated the merits of both a desktop and web app. A desktop app would allow our partner to interact with the model without internet access, and has lower maintenance costs. However, installing the app on hospital computers requires internal IT clearance. On the other hand, the web app decided on the web app as it does not require IT clearance for use. The desktop app was deemed less preferable by our partner due to potential IT clearance issues.
 
 ```{figure} image/demo_gif_v2.gif
 ---
@@ -158,7 +150,7 @@ In this project, we aimed to investigate whether supervised machine learning tec
 1) Well-documented source code and an automated machine learning pipeline
 2) An interactive web application
 
-he open-source licensed source code will allow future researchers and developers to borrow from and build upon this work. The Makefile included with the project makes it seamless to update the model with an expanded dataset. The web application allows healthcare providers to easily interact with our machine learning model to discover which sites are safe for insulin injection and which sites should be avoided. 
+The open-source licensed source code will allow future researchers and developers to borrow from and build upon this work. The Makefile included with the project makes it seamless to update the model with an expanded dataset. The web application allows healthcare providers to easily interact with our machine learning model to discover which sites are safe for insulin injection and which sites should be avoided. 
 
 Although our project has demonstrated that machine learning can be used to detect lipohypertrophy, there are some key limitations that should be addressed before it is used in the clinical setting. These key limitations are as follows:
 

@@ -245,16 +245,10 @@
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Subclinical lipohypertrophy is a common complication for diabetic patients who inject insulin. It is defined as the growth of fat cells and fibrous tissue in the deepest layer of the skin following repeated insulin injections in the same area. It is critical that insulin is not injected into areas of lipohypertrophy as it reduces the effectiveness of the insulin. Fortunately, research by <span id="id3">Kapeluto <em>et al.</em> [<a class="reference internal" href="#id9">KPCM18</a>]</span> has found ultrasound imaging techniques are more accurate in finding these masses than a physical examination of the body by a healthcare professional. But, currently, the criteria to classify lipohypertrophy using ultrasound imaging is only implemented by a small group of physicians. To expand the usability of this criteria to a larger set of healthcare professionals, the capstone partner is interested in seeing if we can leverage supervised machine learning techniques to accurately classify the presence of lipohypertrophy given an ultrasound image.</p>
-<figure class="align-default" id="great-red-spot">
-<a class="reference internal image-reference" href="https://solarsystem.nasa.gov/system/resources/detail_files/626_PIA21775.jpg"><img alt="https://solarsystem.nasa.gov/system/resources/detail_files/626_PIA21775.jpg" src="https://solarsystem.nasa.gov/system/resources/detail_files/626_PIA21775.jpg" style="height: 300px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Jupiter’s Great Red Spot! Source: <a class="reference external" href="https://solarsystem.nasa.gov/resources/626/jupiters-great-red-spot-in-true-color/?category=planets_jupiter">NASA</a>.</span><a class="headerlink" href="#great-red-spot" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
 <figure class="align-default" id="example">
 <a class="reference internal image-reference" href="_images/example.png"><img alt="_images/example.png" src="_images/example.png" style="height: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Some examples of images found in our dataset. Top row is negative (no lipohypertrophy present) and bottom row is positive (lipohypertrophy present) images where the yellow annotations indicate the exact area of the mass.</span><a class="headerlink" href="#example" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Some examples of images found in our dataset. Top row is negative (no lipohypertrophy present) and bottom row is positive (lipohypertrophy present) images where the yellow annotations indicate the exact area of the mass.</span><a class="headerlink" href="#example" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Our current dataset, as shown in Figure 2 (below), includes 218 negative images (no lipohypertrophy present) and 135 positive images (lipohypertrophy present) which is typically considered to be a very small dataset for a deep learning model. Thus, our specific data science objectives for this project include:</p>
@@ -270,7 +264,7 @@
 <figure class="align-default" id="counts-df">
 <a class="reference internal image-reference" href="_images/counts_df.png"><img alt="_images/counts_df.png" src="_images/counts_df.png" style="height: 100px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">The total number of positive and negative examples in our dataset.</span><a class="headerlink" href="#counts-df" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">The total number of positive and negative examples in our dataset.</span><a class="headerlink" href="#counts-df" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -283,7 +277,7 @@
 <figure class="align-default" id="workflow">
 <a class="reference internal image-reference" href="_images/ds_workflow.png"><img alt="_images/ds_workflow.png" src="_images/ds_workflow.png" style="height: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Our general data science workflow for the capstone project.</span><a class="headerlink" href="#workflow" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Our general data science workflow for the capstone project.</span><a class="headerlink" href="#workflow" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>3.1 Data Preparation</p>
@@ -291,7 +285,7 @@
 <figure class="align-default" id="transformation">
 <a class="reference internal image-reference" href="_images/transformed_image.png"><img alt="_images/transformed_image.png" src="_images/transformed_image.png" style="height: 200px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Final image transformations included random vertical and horizontal flipping and random brightness and contrast adjustment.</span><a class="headerlink" href="#transformation" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Final image transformations included random vertical and horizontal flipping and random brightness and contrast adjustment.</span><a class="headerlink" href="#transformation" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>3.2 Model Development</p>
@@ -299,20 +293,20 @@
 <figure class="align-default" id="acc-chart">
 <a class="reference internal image-reference" href="_images/model_acc_bar_chart.png"><img alt="_images/model_acc_bar_chart.png" src="_images/model_acc_bar_chart.png" style="height: 150px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">All four models were tested on a holdout sample to produce these accuracy results.</span><a class="headerlink" href="#acc-chart" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">All four models were tested on a holdout sample to produce these accuracy results.</span><a class="headerlink" href="#acc-chart" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="recall-chart">
 <a class="reference internal image-reference" href="_images/model_recall_bar_chart.png"><img alt="_images/model_recall_bar_chart.png" src="_images/model_recall_bar_chart.png" style="height: 150px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">All four models were tested on a holdout sample to produce these recall results.</span><a class="headerlink" href="#recall-chart" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">All four models were tested on a holdout sample to produce these recall results.</span><a class="headerlink" href="#recall-chart" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>The model that utilizes the DenseNet architecture appears to be the best performing model for our dataset. Furthermore, we conducted a <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/model_decision_making.ipynb">manual analysis</a> of tricky negative and positive images to evaluate the models’ performance using an interactive interface. This application allowed us to compare how confident the models were when misclassifying images and showcased the strengths of the DenseNet architecture.</p>
 <figure class="align-default" id="true-pos-all-wrong">
 <a class="reference internal image-reference" href="_images/true_pos_all_wrong.png"><img alt="_images/true_pos_all_wrong.png" src="_images/true_pos_all_wrong.png" style="height: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">A manual inspection of tricky examples was conducted. Above, we have a true positive and although, all model are struggling, DenseNet is the least confident in its wrong prediction.</span><a class="headerlink" href="#true-pos-all-wrong" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">A manual inspection of tricky examples was conducted. Above, we have a true positive and although, all model are struggling, DenseNet is the least confident in its wrong prediction.</span><a class="headerlink" href="#true-pos-all-wrong" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>In an effort to reduce the high confidence levels for misclassifications, a problem known as overfitting, we considered adding dropout layers in our CNN structure. In this case, overfitting occurs as a result of having trained our models on such a small training set. Another way to reduce overfitting is to average the predictions from all four models, called an ensemble. However, an ensemble would not be feasible as it requires lots of resources such as enough CPU to train the models. Although the dropout layers did manage to reduce overfitting in the models, the overall reduced accuracy was not significant enough to implement those layers in our optimal model. To see this exploration, click <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densemodels-ax-dropout-layers.ipynb">here</a>.</p>
@@ -321,14 +315,14 @@
 <figure class="align-default" id="size-df">
 <a class="reference internal image-reference" href="_images/size_df.png"><img alt="_images/size_df.png" src="_images/size_df.png" style="height: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Comparison of the file size of the different models revealed that DenseNet was the smallest model.</span><a class="headerlink" href="#size-df" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Comparison of the file size of the different models revealed that DenseNet was the smallest model.</span><a class="headerlink" href="#size-df" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Our next objective was to implement object detection into our pipeline, giving us the ability to identify the exact location of lipohypertrophy on unseen test images. To implement object detection using a popular framework called YOLO, the team created bounding boxes around the location of the lipohypertrophy masses in the positive training images using the annotated ultrasound images as a guide. Next, using the YOLOv5 framework, the Yolov5m model was trained for 200 epochs with an image size of 320 and a batch size of 8. The team experimented with different training parameters to find that the aforementioned training parameters produce optimal results.</p>
 <figure class="align-default" id="obj-det">
 <a class="reference internal image-reference" href="_images/object_detect_example.png"><img alt="_images/object_detect_example.png" src="_images/object_detect_example.png" style="height: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Our final object detection model results on a test sample reveals promising results. The top row indicates the true location of lipohypertrophy and the bottom row indicates where the model thinks the lipohypertrophy is. The number on the red box indicates the model’s confidence.</span><a class="headerlink" href="#obj-det" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Our final object detection model results on a test sample reveals promising results. The top row indicates the true location of lipohypertrophy and the bottom row indicates where the model thinks the lipohypertrophy is. The number on the red box indicates the model’s confidence.</span><a class="headerlink" href="#obj-det" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -336,11 +330,11 @@
 <h2>Data Product and Results<a class="headerlink" href="#data-product-and-results" title="Permalink to this headline">¶</a></h2>
 <p>The first deliverable data product is the source code including an environmental file (.yaml), command-line enabled python scripts to perform train-validation-test split on image folders, modeling, evaluation, and deployment, and a Makefile that automates the entire process. The team expects our partner to use the source code to refit the lipohypertrophy classification model as more ultrasound images become available. The python scripts are built with optional arguments for model hyperparameters, which makes this a flexible tool to work with. The Makefile renders the process automatic and makes the model refitting effortless. However, the source code requires a certain degree of python and command line interface knowledge.</p>
 <p>The second deliverable is a web application for our partner to interact with the lipohypertrophy classification and object detection models. The team expects our partner to use this app to upload one or multiple cropped ultrasound images, and get an instant prediction of lipohypertrophy presence along with the prediction confidence. If the prediction is positive, a red box will appear on the image to indicate the proposed lipohypertrophy area. The app is deployed on Streamlit share and Heroku, two free-service deployment platforms. The team sent a special request form to Streamlit to increase the allocated resources under Streamlit’s “good for the world” projects program. The request was approved and the app deployed on Streamlit share runs much faster in comparison to that deployed on Heroku; which now serves as a backup. Future (larger) models could be hosted on cloud based servers since they are more flexible and secure.</p>
-<p>The team and capstone partner evaluated the merits of both a desktop and web app. A desktop app would allow our partner to interact with the model without internet access, and has lower maintenance costs. However, installing the app on hospital computers requires internal IT clearance. The web app decided on the web app as it does not require IT clearance for use. The desktop app was deemed less preferable by our partner due to potential IT clearance issues.</p>
+<p>The team and capstone partner evaluated the merits of both a desktop and web app. A desktop app would allow our partner to interact with the model without internet access, and has lower maintenance costs. However, installing the app on hospital computers requires internal IT clearance. On the other hand, the web app decided on the web app as it does not require IT clearance for use. The desktop app was deemed less preferable by our partner due to potential IT clearance issues.</p>
 <figure class="align-default" id="web-app">
 <a class="reference internal image-reference" href="_images/demo_gif_v2.gif"><img alt="_images/demo_gif_v2.gif" src="_images/demo_gif_v2.gif" style="height: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Our web application on Streamlit can take multiple images and provides a final prediction and its confidence for a given image. If the model is considered positive, the model will also propose the location of the lipohypetrophy.</span><a class="headerlink" href="#web-app" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Our web application on Streamlit can take multiple images and provides a final prediction and its confidence for a given image. If the model is considered positive, the model will also propose the location of the lipohypetrophy.</span><a class="headerlink" href="#web-app" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -351,7 +345,7 @@
 <li><p>Well-documented source code and an automated machine learning pipeline</p></li>
 <li><p>An interactive web application</p></li>
 </ol>
-<p>he open-source licensed source code will allow future researchers and developers to borrow from and build upon this work. The Makefile included with the project makes it seamless to update the model with an expanded dataset. The web application allows healthcare providers to easily interact with our machine learning model to discover which sites are safe for insulin injection and which sites should be avoided.</p>
+<p>The open-source licensed source code will allow future researchers and developers to borrow from and build upon this work. The Makefile included with the project makes it seamless to update the model with an expanded dataset. The web application allows healthcare providers to easily interact with our machine learning model to discover which sites are safe for insulin injection and which sites should be avoided.</p>
 <p>Although our project has demonstrated that machine learning can be used to detect lipohypertrophy, there are some key limitations that should be addressed before it is used in the clinical setting. These key limitations are as follows:</p>
 <ol class="simple">
 <li><p>Scarcity of data - We had merely 353 images to develop our model which is a small dataset in the realm of deep learning. The scarcity of our dataset caused variability in different runs of the experiments conducted. We have also noticed that our model’s performance is sensitive to data splitting (i.e. which images are in the training, validation and test folders).</p></li>
