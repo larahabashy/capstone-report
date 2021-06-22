@@ -64,8 +64,9 @@ The implementation of dropout layers within the model's architecture to reduce t
 To reduce the generalization error, we considered varying the pos_weight argument in the loss function. Increasing the positive weights to more than 1 would mean heavier penalization (loss) on positives, in an attempt to reduce false negatives (a true positive where the model predicts is negative) and improve recall. To see this exploration, which is also used to combat the class imbalance issue, click [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/pos-weight-exploration.ipynb).
 
 
-### Hyperparameter Optimization - Bayesian Optimization with Ax
+### Hyperparameter Optimization 
 
+#### Bayesian Optimization with Ax
 The general idea with the Bayesian method is that not every possible parameterization in the defined parameter space is explored. The process tunes parameters in a few iterations by building a surrogate model. A surrogate model is a probablistic model that uses an acquisition function to direct the next sample to make up configurations where an improvement over the current best parameterization is likely. Bayesian Optimization with Ax, a recently developed package for optimization by Facebook, relies on information from previous trials to propose better hyperparameters in the next evaluation. The Gaussian process is as follows:
 
 1. Build "smooth" surrogate model using Gaussian processes (initially Gaussian with mean 0 and variance equal to the noise in data. The surrogate model updates to a Gaussian model with mean equal to the estimated mean and updated variance based on the previous trial. 
