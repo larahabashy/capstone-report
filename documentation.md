@@ -9,7 +9,6 @@ The team initially used a web interface provided by the albumentations library, 
 To use the albumentations library:
 
 - This [guide](https://albumentations.ai/docs/examples/pytorch_classification/) is extremely helpful for our classification task. You develop your own class that inherits from the torch dataset. To see an example of this implementation for our dataset, please check this [notebook](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/auto_exp1/notebooks/autoalbument.ipynb).
-- Some transformations that are believed be helpful can be found. The following list is an example of those. 
 
 We also tried a machine learning tool called [autoalbument](https://albumentations.ai/docs/autoalbument/) which allows for the selection of optimal transformations.
 
