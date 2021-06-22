@@ -4,4 +4,5 @@
 #
 - file: capstone-report
 - file: lit_review
+- file: documentation
 - file: glossary
