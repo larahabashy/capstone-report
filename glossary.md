@@ -14,11 +14,15 @@ False negative: a false negative, also referred to as type II error in Statistic
 
 GAN: short for Generative Adversarial Network, GANs are a machine learning model where two neural networks compete against each other. In this context, GANs can be used to develop authentic-looking but fake images of ultrasounds to build a large dataset that can be used for future applications. 
 
+Gaussian process: a Gaussian process is a stochastic process, a collection of random variables with a time or space component, that allows finite collection of random variables to have a multivariate normal (bell-shaped) distribution. That is, every finite linear combination of random variables is normally distributed.
+
 RCNNs: short for recurrent correlation neural networks, RCNNS are a machine learning model used for object detection. RCNNs learn the data but dividing it into sections and taking the most important features to then classify.
 
 Recall: a ratio representing the number of true positives divided by the number of true positives plus the number of false negatives. Optimizing recall means to reduce the number of false negatives.
 
 Transfer learning : a technique that allows us to leverage pre-existing models that have already been trained on thousands of images from various data sources and applying them to our dataset.
+
+Sigmoid layer: A sigmoid layer in a neural network applies a sigmoid function to the input such that the output is bounded in the interval (0,1).
 
 YOLO: short for You Only Look Once, YOLO is an object detection framework that uses convolutional neural networks to train on images and optimize detection performance in real-time. 
 
