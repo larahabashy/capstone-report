@@ -1,33 +1,17 @@
-## Appendix C - Documentation
+## Appendix B - Documentation
 
-In this section of the Appendix, we attempt to highlight at a high level, all the decisions that were taken during the entirety of this capstone project.
+In this section of the Appendix, we attempt to highlight at a high level, some of the decisions that were taken throughout the duration of this capstone project. This section presents some of the technical details behind those decisions.
 
 ### Data Augemntations 
 
-The team initially used a web interface provided by the albumentations library, powered by PyTorch for image transformations, that allowed us to see what the different transformations would look like. Based on that, we chose some transformations to test in our pipeline. This experiment can be found [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/auto_exp1/notebooks/autoalbument.ipynb). The final model was chosen based on the transformations yielding the highest accuracy score.
+The team initially used a web interface provided by the albumentations library, powered by PyTorch for image transformations, that allowed us to see what the different transformations would look like. Based on that, we chose some transformations to test in our pipeline. This experiment can be found [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb). The final model was chosen based on the transformations yielding the highest accuracy score.
 
 To use the albumentations library:
 
-- This [guide](https://albumentations.ai/docs/examples/pytorch_classification/) is extremely helpful for our classification task. You develop your own class that inherits from the torch dataset. To see an example of implementation for our dataset, please check this [notebook](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/auto_exp1/notebooks/autoalbument.ipynb).
+- This [guide](https://albumentations.ai/docs/examples/pytorch_classification/) is extremely helpful for our classification task. You develop your own class that inherits from the torch dataset. To see an example of this implementation for our dataset, please check this [notebook](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/auto_exp1/notebooks/autoalbument.ipynb).
 - Some transformations that are believed be helpful can be found. The following list is an example of those. 
-  - CLAHE
-  - Downscale
-  - Equalize 
-  - Hue Saturation (may not apply if no color channels)
-  - ISO noise 
-  - Invert Image
 
-To use the [autoalbument](https://albumentations.ai/docs/autoalbument/):
-
-1. First run the following command:
-`autoalbument-create --config-dir ~/mds/capstone/capstone-gdrl-lipo/experiments --task classification --num-classes 2` This creates all the files needed for you.
-
-2.  Next, you need to implement your own [torch custom dataset](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/auto_exp1/experiments/dataset.py). Next you set up the [search.yaml ](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/auto_exp1/experiments/search.yaml) file to ensure what it needs to search for (you can add preprocessing steps that apply to every image here, choose the batch size, number of workers, type of model, device available (cuda or cpu) and number of epochs). 
-
-3. Next, run the following command:
-`autoalbument-search --config-dir ~/mds/capstone/capstone-gdrl-lipo/experiments`
-
-4. Finally, you get a [json file](https://github.com/UBC-MDS/capstone-gdrl-lipo/tree/auto_exp1/experiments/outputs/2021-05-11/16-45-11/policy)  that can them be loaded in and applied to your transformation. See the transformation exploration [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/auto_exp1/notebooks/autoalbument.ipynb).
+We also tried a machine learning tool called [autoalbument](https://albumentations.ai/docs/autoalbument/) which allows for the selection of optimal transformations.
 
 ### Loss Functions
 
@@ -106,5 +90,7 @@ The main advantages to Bayesian Optimization are:
 - its ability to find better parameterizations with fewer iterations than grid search and;
 - striking a balance between exploration and exploitation where exploration refers to trying out parameterization with high uncertainty in the outcome and exploitation refers to the surrogate model predicting likely parameterizations.
 
-In addition to the our Bayesian experiments, we also utilized explanations in [this](https://www.cs.ox.ac.uk/people/nando.defreitas/publications/BayesOptLoop.pdf) paper and [this](https://arxiv.org/pdf/1912.05686.pdf) paper.
+In addition to our Bayesian experiments, we consulted results in the following papers regarding classical transformations applied to small:
+- [A Review of Bayesian Optimization](https://www.cs.ox.ac.uk/people/nando.defreitas/publications/BayesOptLoop.pdf)
+- [Bayesian Hyperparameter Optimization with BoTorch, GPyTorch and Ax](https://arxiv.org/pdf/1912.05686.pdf).
 
