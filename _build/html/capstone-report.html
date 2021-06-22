@@ -239,12 +239,12 @@
 <p>By: Ela Bandari, Lara Habashy, Javairia Raza and Peter Yang</p>
 <section id="executive-summary">
 <h2>Executive Summary<a class="headerlink" href="#executive-summary" title="Permalink to this headline">¶</a></h2>
-<p>Subclinical lipohypertrophy is traditionally evaluated by visual inspection or palpation. Recent work has shown that lipohypertrophy may be detected by ultrasound imaging <span id="id1">[<a class="reference internal" href="#id9">KPCM18</a>]</span>. However, the criteria used to classify lipohypertrophy using ultrasound imaging is only familiar to and implemented by a small group of physicians <span id="id2">[<a class="reference internal" href="#id10">Mad21</a>]</span>. In an effort to improve the accessibility and efficiency of this method of detection, we have developed a supervised machine learning model to detect lipohypertrophy in ultrasound images.</p>
+<p>Subclinical lipohypertrophy is traditionally evaluated by visual inspection or palpation. Recent work has shown that lipohypertrophy may be detected by ultrasound imaging <span id="id1">[<a class="reference internal" href="markdown.html#id7">KPCM18</a>]</span>. However, the criteria used to classify lipohypertrophy using ultrasound imaging is only familiar to and implemented by a small group of physicians <span id="id2">[<a class="reference internal" href="markdown.html#id8">Mad21</a>]</span>. In an effort to improve the accessibility and efficiency of this method of detection, we have developed a supervised machine learning model to detect lipohypertrophy in ultrasound images.</p>
 <p>To develop our machine learning model, we tested a variety of image augmentation techniques and ultimately decided on augmenting our dataset by adding random flipping, contrast and brightness. We then fit a variety of pre-existing model architectures trained on thousands of images to our augmented dataset. We optimized the parameters by which the model learned and then carefully examined the different models’ performance and fine tuned them to our dataset before selecting the best performing model. Our final model accurately classified 76% of unseen test data. We have made our model accessible to potential users via a <a class="reference external" href="https://share.streamlit.io/xudongyang2/lipo_deployment/demo_v2.py">web interface</a>. Our work has demonstrated the potential that supervised machine learning holds in accurately detecting lipohypertrophy; however, the scarcity of the ultrasound images has been a contributor to the model’s shortcomings. We have outlined a set of recommendations for improving this project; the most notable of which is re-fitting the model using a larger dataset.</p>
 </section>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Subclinical lipohypertrophy is a common complication for diabetic patients who inject insulin. It is defined as the growth of fat cells and fibrous tissue in the deepest layer of the skin following repeated insulin injections in the same area. It is critical that insulin is not injected into areas of lipohypertrophy as it reduces the effectiveness of the insulin. Fortunately, research by <span id="id3">Kapeluto <em>et al.</em> [<a class="reference internal" href="#id9">KPCM18</a>]</span> has found ultrasound imaging techniques are more accurate in finding these masses than a physical examination of the body by a healthcare professional. But, currently, the criteria to classify lipohypertrophy using ultrasound imaging is only implemented by a small group of physicians. To expand the usability of this criteria to a larger set of healthcare professionals, the capstone partner is interested in seeing if we can leverage supervised machine learning techniques to accurately classify the presence of lipohypertrophy given an ultrasound image.</p>
+<p>Subclinical lipohypertrophy is a common complication for diabetic patients who inject insulin. It is defined as the growth of fat cells and fibrous tissue in the deepest layer of the skin following repeated insulin injections in the same area. It is critical that insulin is not injected into areas of lipohypertrophy as it reduces the effectiveness of the insulin. Fortunately, research by <span id="id3">Kapeluto <em>et al.</em> [<a class="reference internal" href="markdown.html#id7">KPCM18</a>]</span> has found ultrasound imaging techniques are more accurate in finding these masses than a physical examination of the body by a healthcare professional. But, currently, the criteria to classify lipohypertrophy using ultrasound imaging is only implemented by a small group of physicians. To expand the usability of this criteria to a larger set of healthcare professionals, the capstone partner is interested in seeing if we can leverage supervised machine learning techniques to accurately classify the presence of lipohypertrophy given an ultrasound image.</p>
 <figure class="align-default" id="example">
 <a class="reference internal image-reference" href="_images/example.png"><img alt="_images/example.png" src="_images/example.png" style="height: 500px;" /></a>
 <figcaption>
@@ -281,7 +281,7 @@
 </figcaption>
 </figure>
 <p>3.1 Data Preparation</p>
-<p>Given the small size of the dataset, image augmentation techniques were used to expand the size of the training set and improve the model’s generalizability. We explored the pytorch and the albumentations libraries as they had proven successful in increasing accuracy in previous work <span id="id4">[<a class="reference internal" href="#id8">ADGKA19</a>]</span>. We also attempted to leverage a machine learning tool called autoalbument from the latter library that searches for and selects the best transformations. However, following several runs, the accuracy did not improve from baseline. We suspect it may be that the transformations were too complex for the model to learn anything significant. Using simpler transformations to augment the data was complemented by results found in our literature review <span id="id5">[<a class="reference internal" href="#id14">EKN+17</a>, <a class="reference internal" href="#id11">LMK20</a>]</span>. A variety of classic transformations were tested and the model’s performance on these augmented datasets were documented <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb">here</a>. The transformations that led to the best performance were adding random vertical and horizontal flipping along with random brightness and contrast adjustment, with a probability of 50%.</p>
+<p>Given the small size of the dataset, image augmentation techniques were used to expand the size of the training set and improve the model’s generalizability. We explored the pytorch and the albumentations libraries as they had proven successful in increasing accuracy in previous work <span id="id4">[<a class="reference internal" href="markdown.html#id6">ADGKA19</a>]</span>. We also attempted to leverage a machine learning tool called autoalbument from the latter library that searches for and selects the best transformations. However, following several runs, the accuracy did not improve from baseline. We suspect it may be that the transformations were too complex for the model to learn anything significant. Using simpler transformations to augment the data was complemented by results found in our literature review <span id="id5">[<a class="reference internal" href="markdown.html#id12">EKN+17</a>, <a class="reference internal" href="markdown.html#id9">LMK20</a>]</span>. A variety of classic transformations were tested and the model’s performance on these augmented datasets were documented <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb">here</a>. The transformations that led to the best performance were adding random vertical and horizontal flipping along with random brightness and contrast adjustment, with a probability of 50%.</p>
 <figure class="align-default" id="transformation">
 <a class="reference internal image-reference" href="_images/transformed_image.png"><img alt="_images/transformed_image.png" src="_images/transformed_image.png" style="height: 200px;" /></a>
 <figcaption>
@@ -354,7 +354,7 @@
 </ol>
 <p>To address the limitations outlined above, our team has made the following recommendations:</p>
 <ol class="simple">
-<li><p>Addition of more labelled images – In line with the size of the dataset in similar studies <span id="id6">[<a class="reference internal" href="#id12">CM17</a>, <a class="reference internal" href="#id13">XLL+18</a>]</span>, we recommend increasing the dataset to at least 1000 images and ideally up to several thousand images.</p></li>
+<li><p>Addition of more labelled images – In line with the size of the dataset in similar studies <span id="id6">[<a class="reference internal" href="markdown.html#id10">CM17</a>, <a class="reference internal" href="markdown.html#id11">XLL+18</a>]</span>, we recommend increasing the dataset to at least 1000 images and ideally up to several thousand images.</p></li>
 <li><p>Increasing computational resources - we recommend obtaining funding for additional computing resources for both the development and deployment of future models.</p></li>
 <li><p>Adding additional functionality such as a cropping tool within the web interface.</p></li>
 </ol>
@@ -362,40 +362,49 @@
 <section id="bibliography">
 <h2>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h2>
 <p id="id7"><dl class="citation">
-<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id4">ADGKA19</a></span></dt>
+<dt class="label" id="id10"><span class="brackets">kaga</span></dt>
+<dd><p>Ultrasound nerve segmentation. URL: <a class="reference external" href="https://www.kaggle.com/c/ultrasound-nerve-segmentation/overview">https://www.kaggle.com/c/ultrasound-nerve-segmentation/overview</a>.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets">kagb</span></dt>
+<dd><p>Vinbigdata chest x-ray abnormalities detection. URL: <a class="reference external" href="https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/code?competitionId=24800&amp;sortBy=voteCount">https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/code?competitionId=24800&amp;sortBy=voteCount</a>.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id4">ADGKA19</a></span></dt>
 <dd><p>Walid Al-Dhabyani, Mohammed Gomaa, Hussien Khaled, and Fahmy Aly. Deep learning approaches for data augmentation and classification of breast masses using ultrasound images. <em>Int. J. Adv. Comput. Sci. Appl</em>, 10(5):1–11, 2019.</p>
 </dd>
-<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id6">CM17</a></span></dt>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id6">CM17</a></span></dt>
 <dd><p>Phillip M Cheng and Harshawn S Malhi. Transfer learning with convolutional neural networks for classification of abdominal ultrasound images. <em>Journal of digital imaging</em>, 30(2):234–243, 2017.</p>
 </dd>
-<dt class="label" id="id16"><span class="brackets">CCL+19</span></dt>
+<dt class="label" id="id19"><span class="brackets">CCL+19</span></dt>
 <dd><p>Jui-Ying Chiao, Kuan-Yung Chen, Ken Ying-Kai Liao, Po-Hsin Hsieh, Geoffrey Zhang, and Tzung-Chi Huang. Detection and classification the breast tumors using mask r-cnn on sonograms. <em>Medicine</em>, 2019.</p>
 </dd>
-<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id5">EKN+17</a></span></dt>
+<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id5">EKN+17</a></span></dt>
 <dd><p>Andre Esteva, Brett Kuprel, Roberto A. Novoa, Justin Ko, Susan M. Swetter, Helen M. Blau, and Sebastian Thrun. Dermatologist-level classification of skin cancer with deep neural networks. <em>Nature (London)</em>, 542(7639):115–118, 2017.</p>
 </dd>
-<dt class="label" id="id15"><span class="brackets">HZL18</span></dt>
+<dt class="label" id="id8"><span class="brackets">Gan18</span></dt>
+<dd><p>Rohith Gandhi. R-cnn, fast r-cnn, faster r-cnn, yolo - object detection algorithms. Jul 2018. URL: <a class="reference external" href="https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e">https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e</a>.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets">HZL18</span></dt>
 <dd><p>Qinghua Huang, Fan Zhang, and Xuelong Li. Machine learning in ultrasound computer-aided diagnostic systems: a survey. <em>BioMed research international</em>, 2018.</p>
 </dd>
-<dt class="label" id="id9"><span class="brackets">KPCM18</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
+<dt class="label" id="id12"><span class="brackets">KPCM18</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>)</span></dt>
 <dd><p>JE Kapeluto, BW Paty, SD Chang, and GS Meneilly. Ultrasound detection of insulin-induced lipohypertrophy in type 1 and type 2 diabetes. <em>Diabetic Medicine</em>, 35(10):1383–1390, 2018.</p>
 </dd>
-<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id5">LMK20</a></span></dt>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id5">LMK20</a></span></dt>
 <dd><p>Mohamed Loey, Gunasekaran Manogaran, and Nour Eldeen M Khalifa. A deep transfer learning model with classical data augmentation and cgan to detect covid-19 from chest ct radiography digital images. <em>Neural Computing and Applications</em>, pages 1–13, 2020.</p>
 </dd>
-<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id2">Mad21</a></span></dt>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id2">Mad21</a></span></dt>
 <dd><p>Ken Madden. Machine learning approaches to: 1. diagnosing lipohypertrophy at the bedside, and 2. falls prediction in long term care. 2021. URL: <a class="reference external" href="https://github.ubc.ca/MDS-2020-21/DSCI_591_capstone-proj_students/blob/master/proposals/md/Machine_Learning_Approaches_to_Diagnosing_Lipohypertrophy_and_Predicting_Falls.md">https://github.ubc.ca/MDS-2020-21/DSCI_591_capstone-proj_students/blob/master/proposals/md/Machine_Learning_Approaches_to_Diagnosing_Lipohypertrophy_and_Predicting_Falls.md</a>.</p>
 </dd>
-<dt class="label" id="id18"><span class="brackets">SLZ+20</span></dt>
+<dt class="label" id="id21"><span class="brackets">SLZ+20</span></dt>
 <dd><p>Qiuchang Sun, Xiaona Lin, Yuanshen Zhao, Ling Li, Kai Yan, Dong Liang, Desheng Sun, and Zhi-Cheng Li. Deep learning vs. radiomics for predicting axillary lymph node metastasis of breast cancer using ultrasound images: don't forget the peritumoral region. <em>Frontiers in oncology</em>, 10:53, 2020.</p>
 </dd>
-<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id6">XLL+18</a></span></dt>
+<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id6">XLL+18</a></span></dt>
 <dd><p>Ting Xiao, Lei Liu, Kai Li, Wenjian Qin, Shaode Yu, and Zhicheng Li. Comparison of transferred deep neural networks in ultrasonic breast masses discrimination. <em>BioMed research international</em>, 2018.</p>
 </dd>
-<dt class="label" id="id17"><span class="brackets">YAAK18</span></dt>
+<dt class="label" id="id20"><span class="brackets">YAAK18</span></dt>
 <dd><p>Koichiro Yasaka, Hiroyuki Akai, Osamu Abe, and Shigeru Kiryu. Deep learning with convolutional neural network for differentiation of liver masses at dynamic contrast-enhanced ct: a preliminary study. <em>Radiology</em>, 286(3):887–896, 2018.</p>
 </dd>
-<dt class="label" id="id19"><span class="brackets">ZHC+20</span></dt>
+<dt class="label" id="id22"><span class="brackets">ZHC+20</span></dt>
 <dd><p>Heqing Zhang, Lin Han, Ke Chen, Yulan Peng, and Jiangli Lin. Diagnostic efficiency of the breast ultrasound computer-aided prediction model based on convolutional neural network in breast cancer. <em>Journal of Digital Imaging</em>, 33:1218–1223, 2020.</p>
 </dd>
 </dl>
