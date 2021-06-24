@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appendix B - Documentation &#8212; Capstone Report</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Appendix C - Glossary" href="glossary.html" />
+    <link rel="prev" title="Appendix A - Literature Review" href="lit_review.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Capstone Report</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="capstone-report.html">
+   Final Report
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lit_review.html">
+   Appendix A - Literature Review
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Appendix B - Documentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="glossary.html">
+   Appendix C - Glossary
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/documentation.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/larahabashy/capstone-report"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/larahabashy/capstone-report/issues/new?title=Issue%20on%20page%20%2Fdocumentation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-augemntations">
+   Data Augemntations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loss-functions">
+   Loss Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#structure-of-cnn-model">
+   Structure of CNN Model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batch-normalization">
+     Batch Normalization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dropout-layer">
+     Dropout Layer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recall-optimization">
+     Recall Optimization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hyperparameter-optimization">
+   Hyperparameter Optimization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bayesian-optimization-with-ax">
+     Bayesian Optimization with Ax
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="appendix-b-documentation">
+<h1>Appendix B - Documentation<a class="headerlink" href="#appendix-b-documentation" title="Permalink to this headline">¶</a></h1>
+<p>In this section of the Appendix, we attempt to highlight at a high level, some of the decisions that were taken throughout the duration of this capstone project. This section presents some of the technical details behind those decisions.</p>
+<div class="section" id="data-augemntations">
+<h2>Data Augemntations<a class="headerlink" href="#data-augemntations" title="Permalink to this headline">¶</a></h2>
+<p>The team initially used a web interface provided by the albumentations library, powered by PyTorch for image transformations, that allowed us to see what the different transformations would look like. Based on that, we chose some transformations to test in our pipeline. This experiment can be found <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb">here</a>. The final model was chosen based on the transformations yielding the highest accuracy score.</p>
+<p>To use the albumentations library:</p>
+<ul class="simple">
+<li><p>This <a class="reference external" href="https://albumentations.ai/docs/examples/pytorch_classification/">guide</a> is extremely helpful for our classification task. You develop your own class that inherits from the torch dataset. To see an example of this implementation for our dataset, please check this <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/auto_exp1/notebooks/autoalbument.ipynb">notebook</a>.</p></li>
+</ul>
+<p>We also tried a machine learning tool called <a class="reference external" href="https://albumentations.ai/docs/autoalbument/">autoalbument</a> which allows for the selection of optimal transformations.</p>
+</div>
+<div class="section" id="loss-functions">
+<h2>Loss Functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">¶</a></h2>
+<p>A loss function, also known as cost function or error function, is a function that maps a set of parameter values for the network onto a scalar value. The scalar value is an indication of how well the parameters are completing their assigned tasks. In optimization problems, we seek to minimize the loss function.</p>
+<p>The following functions were considered for the choice of the loss function used in the convolutional neural network model:</p>
+<ol class="simple">
+<li><p>BCEWithLogitsLoss</p></li>
+<li><p>NLLLoss</p></li>
+<li><p>Sum of Log Loss</p></li>
+<li><p>Hinge</p></li>
+<li><p>The mean absolute error</p></li>
+</ol>
+<ul class="simple">
+<li><p>BCEWithLogitsLoss: Cross-Entropy loss <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss">nn.BCEWithLogitsLoss</a> combines a Sigmoid layer and the BCELoss in one single class. This loss function in often used in classification problems as a measure of reconstruction error. It uses log loss, which for logistic regression is a special case for cross-entropy loss for multi-class classification.</p></li>
+</ul>
+<p>Alternative Loss Functions Considered</p>
+<ul class="simple">
+<li><p>NLLLoss: Negative Log-Likelihood Loss
+This function expands the binary cross-entropy loss. It requires an additional logSoftMax layer in the last layer of the network. As it outputs probablities, they must sum to 1.
+The function also has various reduction of output options such as the weighted mean of output or sum.</p></li>
+<li><p>Sum of Log Loss: This function allows for the gradient to update with more incentive</p></li>
+<li><p>Hinge: This function, nn.HingeEmbeddingLoss, is used more for measuring similarities. It tries to maximize the margin between decision boundary and data points. The main advantage is that the function penalizes incorrect predictions a lot but also correct ones that aren’t confident (less). That is, confident correct predictions are not penalized at all.</p></li>
+<li><p>L1 MAE: The mean absolute error</p></li>
+</ul>
+</div>
+<div class="section" id="structure-of-cnn-model">
+<h2>Structure of CNN Model<a class="headerlink" href="#structure-of-cnn-model" title="Permalink to this headline">¶</a></h2>
+<p>Based on our Liturature Review, the following transfer learning architectures were considered:</p>
+<ol class="simple">
+<li><p>DenseNet</p></li>
+<li><p>Inception</p></li>
+<li><p>VGG</p></li>
+<li><p>ResNet</p></li>
+</ol>
+<p>The model variants that were considered are documented below, along with some notes thought to be relevant.</p>
+<ul class="simple">
+<li><p>VGG16: It makes the improvement over AlexNet by replacing large kernel-sized filters (<strong>11</strong> and <strong>5</strong> in the first and second convolutional layer, respectively) with multiple 3×3 kernel-sized filters one after another.</p></li>
+<li><p>DenseNet121: DenseNet121 proved to be the best performing model given the Lipohypertrophy data. To see this exploration, click <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/model_decision_making.ipynb">here</a>.</p></li>
+<li><p>ResNet50</p></li>
+<li><p>InceptionV3</p></li>
+</ul>
+<div class="section" id="batch-normalization">
+<h3>Batch Normalization<a class="headerlink" href="#batch-normalization" title="Permalink to this headline">¶</a></h3>
+<p>We ensured all models have batch normalization implemented. This will standardize the inputs of a network improving the overall efficiency by reducing the number of epochs required to train for a given model.</p>
+</div>
+<div class="section" id="dropout-layer">
+<h3>Dropout Layer<a class="headerlink" href="#dropout-layer" title="Permalink to this headline">¶</a></h3>
+<p>The implementation of dropout layers within the model’s architecture to reduce the generalizable error were considered. This is due to the fact that a dropout layer with random probability equal to the dropout rate, drop nodes from a network between layers. However, the dropout layers experiment with varying dropout rates did not show any success for our dataset. To see this exploration, click <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densemodels-ax-dropout-layers.ipynb">here</a>.</p>
+</div>
+<div class="section" id="recall-optimization">
+<h3>Recall Optimization<a class="headerlink" href="#recall-optimization" title="Permalink to this headline">¶</a></h3>
+<p>To reduce the generalization error, we considered varying the pos_weight argument in the loss function. Increasing the positive weights to more than 1 would mean heavier penalization (loss) on positives, in an attempt to reduce false negatives (a true positive where the model predicts is negative) and improve recall. To see this exploration, which is also used to combat the class imbalance issue, click <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/pos-weight-exploration.ipynb">here</a>.</p>
+</div>
+</div>
+<div class="section" id="hyperparameter-optimization">
+<h2>Hyperparameter Optimization<a class="headerlink" href="#hyperparameter-optimization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bayesian-optimization-with-ax">
+<h3>Bayesian Optimization with Ax<a class="headerlink" href="#bayesian-optimization-with-ax" title="Permalink to this headline">¶</a></h3>
+<p>The general idea with the Bayesian method is that not every possible parameterization in the defined parameter space is explored. The process tunes parameters in a few iterations by building a surrogate model. A surrogate model is a probablistic model that uses an acquisition function to direct the next sample to make up configurations where an improvement over the current best parameterization is likely. Bayesian Optimization with Ax, a recently developed package for optimization by Facebook, relies on information from previous trials to propose better hyperparameters in the next evaluation. The Gaussian process is as follows:</p>
+<ol class="simple">
+<li><p>Build “smooth” surrogate model using Gaussian processes (initially Gaussian with mean 0 and variance equal to the noise in data. The surrogate model updates to a Gaussian model with mean equal to the estimated mean and updated variance based on the previous trial.</p></li>
+<li><p>use the surrogate model to <strong>predict</strong> the next parameterization (estimated mean), out of the remaining ones and quantify uncertainty (updated estimated variance)</p></li>
+<li><p>combine predictions and estimates to derive an acquisition function and then optimize it to find the best configuration.</p></li>
+<li><p>Observe outcomes</p></li>
+</ol>
+<p>Fit new surrogate model and repeat process.</p>
+<p>As a way to guide the surrogate model in the prediction of the next parameter configuration to explore, aquisition functions are utilizied.</p>
+<ul class="simple">
+<li><p>Three common examples include:</p></li>
+</ul>
+<ol class="simple">
+<li><p>Probability of Improvement (PI).</p></li>
+<li><p>Expected Improvement (EI).</p></li>
+<li><p>Lower Confidence Bound (LCB)</p></li>
+</ol>
+<p>The most common technique used in Bayesian Optimization is the second choice: Expected Improvement. As such, that was used for our experiments found <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densenet-optimized.ipynb">here</a>.</p>
+<p>An Ax tutorial can be found <a class="reference external" href="https://ax.dev/versions/latest/tutorials/tune_cnn.html">here</a>.</p>
+<p>The main advantages to Bayesian Optimization are:</p>
+<ul class="simple">
+<li><p>its ability to find better parameterizations with fewer iterations than grid search and;</p></li>
+<li><p>striking a balance between exploration and exploitation where exploration refers to trying out parameterization with high uncertainty in the outcome and exploitation refers to the surrogate model predicting likely parameterizations.</p></li>
+</ul>
+<p>In addition to our Bayesian experiments, we consulted results in the following papers regarding classical transformations applied to small:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cs.ox.ac.uk/people/nando.defreitas/publications/BayesOptLoop.pdf">A Review of Bayesian Optimization</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/pdf/1912.05686.pdf">Bayesian Hyperparameter Optimization with BoTorch, GPyTorch and Ax</a>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="lit_review.html" title="previous page">Appendix A - Literature Review</a>
+    <a class='right-next' id="next-link" href="glossary.html" title="next page">Appendix C - Glossary</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ela Bandari, Lara Habashy, Javairia Raza, and Peter Yang<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
