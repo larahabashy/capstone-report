@@ -1,4 +1,4 @@
-## Appendix C - Glossary
+## Appendix B - Glossary
 
 **CPU:** stands for for Central Processing Unit, is a portion of a computer that retrieves and executes instructions. CPU’s are used in this context to execute a sequence of stored instructions (commands). 
 
