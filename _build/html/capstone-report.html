@@ -193,32 +193,49 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#executive-summary">
-   Executive Summary
+   1. Executive Summary
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   Introduction
+   2. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#literature-review">
-   Literature Review
+   3. Literature Review
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-science-methods">
-   Data Science Methods
+   4. Data Science Methods
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-preparation">
+     4.1 Data Preparation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-development">
+     4.2 Model Development
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-detection">
+     4.3 Object Detection
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-product-and-results">
-   Data Product and Results
+   5. Data Product and Results
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#conclusions-and-recommendations">
-   Conclusions and recommendations
+   6. Conclusions and recommendations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -242,49 +259,56 @@
 <p><strong>MDS 2021 Capstone Project with the Gerontology Diabetes Research Lab (GDRL)</strong></p>
 <p>By: Ela Bandari, Lara Habashy, Javairia Raza and Peter Yang</p>
 <div class="section" id="executive-summary">
-<h2>Executive Summary<a class="headerlink" href="#executive-summary" title="Permalink to this headline">¶</a></h2>
-<p>Subclinical lipohypertrophy is traditionally evaluated by visual inspection or palpation. Recent work has shown that lipohypertrophy may be detected by ultrasound imaging <span id="id1">[<a class="reference internal" href="markdown.html#id7"><span>KPCM18</span></a>]</span>. However, the criteria used to classify lipohypertrophy using ultrasound imaging is only familiar to and implemented by a small group of physicians <span id="id2">[<a class="reference internal" href="markdown.html#id8"><span>Mad21</span></a>]</span>. In an effort to improve the accessibility and efficiency of this method of detection, we have developed a supervised machine learning model to detect lipohypertrophy in ultrasound images.</p>
-<p>To develop our machine learning model, we tested a variety of image augmentation techniques and ultimately decided on augmenting our dataset by adding random flipping, contrast and brightness. We then fit a variety of pre-existing model architectures trained on thousands of images to our augmented dataset. We optimized the parameters by which the model learned and then carefully examined the different models’ performance and fine tuned them to our dataset before selecting the best performing model. Our final model accurately classified 76% of unseen test data. We have made our model accessible to potential users via a <a class="reference external" href="https://share.streamlit.io/xudongyang2/lipo_deployment/demo_v2.py">web interface</a>. Our work has demonstrated the potential that supervised machine learning holds in accurately detecting lipohypertrophy; however, the scarcity of the ultrasound images has been a contributor to the model’s shortcomings. We have outlined a set of recommendations for improving this project; the most notable of which is re-fitting the model using a larger dataset.</p>
+<h2>1. Executive Summary<a class="headerlink" href="#executive-summary" title="Permalink to this headline">¶</a></h2>
+<p>Subclinical lipohypertrophy is traditionally evaluated by visual inspection or palpation. Recent work has shown that lipohypertrophy may be detected by ultrasound imaging <span id="id1">[<a class="reference internal" href="#id13">Kapeluto <em>et al.</em>, 2018</a>]</span>. However, the criteria used to classify lipohypertrophy using ultrasound imaging is only familiar to and implemented by a small group of physicians <span id="id2">[<a class="reference internal" href="#id14">Madden, 2021</a>]</span>. In an effort to improve the accessibility and efficiency of this method of detection, we have developed a supervised machine learning model to detect lipohypertrophy in ultrasound images.</p>
+<p>We developed an optimal machine learning model through an iterative process of data augmentation, hyperparameter tuning, and architecture selection. The final optimal model accurately classified 76% of unseen test data. We tested different image augmentation techniques and ultimately decided on adding random flipping, contrast and brightness. We then fit a variety of pre-existing model architectures trained on thousands of images to our augmented dataset. We optimized the parameters by which the model learned and then carefully examined the different models’ performance and fine tuned them to our dataset before selecting the best performing model. We have made our best performing model accessible to potential users via a <a class="reference external" href="https://share.streamlit.io/xudongyang2/lipo_deployment/demo_v2.py">web interface</a>. Our work has demonstrated the potential that supervised machine learning holds in accurately detecting lipohypertrophy; however, the scarcity of the ultrasound images has been a contributor to the model’s shortcomings. We have outlined a set of recommendations (see section <a class="reference internal" href="#recommendations"><span class="std std-ref">6. Conclusions and recommendations</span></a>) for improving this project; the most notable of which is re-fitting the model using a larger dataset.</p>
 </div>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Subclinical lipohypertrophy is a common complication for diabetic patients who inject insulin. It is defined as the growth of fat cells and fibrous tissue in the deepest layer of the skin following repeated insulin injections in the same area. It is critical that insulin is not injected into areas of lipohypertrophy as it reduces the effectiveness of the insulin. Fortunately, research by <a href="#id3"><span class="problematic" id="id4">:cite:t:`kapeluto2018ultrasound`</span></a> has found ultrasound imaging techniques are more accurate in finding these masses than a physical examination of the body by a healthcare professional. But, currently, the criteria to classify lipohypertrophy using ultrasound imaging is only implemented by a small group of physicians. To expand the usability of this criteria to a larger set of healthcare professionals, the capstone partner is interested in seeing if we can leverage supervised machine learning techniques to accurately classify the presence of lipohypertrophy given an ultrasound image.</p>
+<h2>2. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Subclinical lipohypertrophy is a common complication for diabetic patients who inject insulin. It is defined as the growth of fat cells and fibrous tissue in the deepest layer of the skin following repeated insulin injections in the same area. It is critical that insulin is not injected into areas of lipohypertrophy as it reduces the effectiveness of the insulin <span id="id3">[<a class="reference internal" href="#id13">Kapeluto <em>et al.</em>, 2018</a>]</span>. However, recent research by <span id="id4">Kapeluto <em>et al.</em> [<a class="reference internal" href="#id13">2018</a>]</span> has found ultrasound imaging techniques are more accurate in finding these masses than a physical examination of the body by a healthcare professional. Examples of these images are shown in <a class="reference internal" href="#example"><span class="std std-numref">Fig. 1</span></a> below. Unfortunately, the criteria to classify lipohypertrophy using ultrasound imaging is only implemented by a small group of physicians. To expand the usability of this criteria to a larger set of healthcare professionals, the capstone partner is interested in seeing if we can leverage supervised machine learning techniques to accurately classify the presence of lipohypertrophy given an ultrasound image.</p>
 <div class="figure align-default" id="example">
 <a class="reference internal image-reference" href="_images/example.png"><img alt="_images/example.png" src="_images/example.png" style="height: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Some examples of images found in our dataset. Top row is negative (no lipohypertrophy present) and bottom row is positive (lipohypertrophy present) images where the yellow annotations indicate the exact area of the mass.</span><a class="headerlink" href="#example" title="Permalink to this image">¶</a></p>
 </div>
-<p>Our current dataset, as shown in Figure 2 (below), includes 218 negative images (no lipohypertrophy present) and 135 positive images (lipohypertrophy present) which is typically considered to be a very small dataset for a deep learning model. Thus, our specific data science objectives for this project include:</p>
-<ol>
+<p>Our current dataset includes 218 negative images (no lipohypertrophy present) and 135 positive images (lipohypertrophy present) as shown in <a class="reference internal" href="#counts-df"><span class="std std-numref">Fig. 2</span></a> below. Notably, this is considered to be a very small dataset for a deep learning model.</p>
+<p>Our specific data science objectives for this project include:</p>
+<ol class="simple">
 <li><p>Use the provided dataset to develop and evaluate the efficacy of an image classification model. Some of our specific goals include:</p>
-<p>1.1 Data Augmentations</p>
-<p>1.2 Transfer Learning</p>
-<p>1.3 Optimization of Learning</p>
-<p>1.4 Object Detection</p>
+<ol class="simple">
+<li><p>Data Augmentation: applying random image transformations as to expland the dataset (section <a class="reference internal" href="#data-prep"><span class="std std-ref">4.1 Data Preparation</span></a>)</p></li>
+<li><p>Transfer Learning: using a model that has been pre-trained on thousands of images and using it for our dataset (section <a class="reference internal" href="#model-dev"><span class="std std-ref">4.2 Model Development</span></a>)</p></li>
+<li><p>Optimization of Learning: figuring out what are the best parameters that will make the model most optimal for learning the data (section <a class="reference internal" href="#model-dev"><span class="std std-ref">4.2 Model Development</span></a>)</p></li>
+<li><p>Object Detection: training a model to detect the location of lipohypertrophy on an image (section <a class="reference internal" href="#obj-detect"><span class="std std-ref">4.3 Object Detection</span></a>)</p></li>
+</ol>
 </li>
-<li><p>Deploy the model for a non-technical audience.</p></li>
+<li><p>Deploy the model for a non-technical audience (section <a class="reference internal" href="#data-product"><span class="std std-ref">5. Data Product and Results</span></a>).</p></li>
 </ol>
 <div class="figure align-default" id="counts-df">
 <a class="reference internal image-reference" href="_images/counts_df.png"><img alt="_images/counts_df.png" src="_images/counts_df.png" style="height: 100px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">The total number of positive and negative examples in our dataset.</span><a class="headerlink" href="#counts-df" title="Permalink to this image">¶</a></p>
 </div>
+<p>Before beginning any model training, the data was split into train, validation and test splits of 70%, 15% and 15% respectively. Here, we define baseline as a model that only predicts negative and has 62% accuracy. Our goal for this project was to develop a model that performed better than baseline.</p>
 </div>
 <div class="section" id="literature-review">
-<h2>Literature Review<a class="headerlink" href="#literature-review" title="Permalink to this headline">¶</a></h2>
+<h2>3. Literature Review<a class="headerlink" href="#literature-review" title="Permalink to this headline">¶</a></h2>
 <p>Throughout the project, the team has consulted literature to gain insight and direction on current practices relevant to our problem and our dataset to guide and validate our decision-making. Please see <a class="reference internal" href="lit_review.html"><span class="doc std std-doc">Appendix A for our literature review</span></a>.</p>
 </div>
 <div class="section" id="data-science-methods">
-<h2>Data Science Methods<a class="headerlink" href="#data-science-methods" title="Permalink to this headline">¶</a></h2>
+<h2>4. Data Science Methods<a class="headerlink" href="#data-science-methods" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="workflow">
 <a class="reference internal image-reference" href="_images/ds_workflow.png"><img alt="_images/ds_workflow.png" src="_images/ds_workflow.png" style="height: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Our general data science workflow for the capstone project.</span><a class="headerlink" href="#workflow" title="Permalink to this image">¶</a></p>
 </div>
-<p>3.1 Data Preparation</p>
-<p>Given the small size of the dataset, image augmentation techniques were used to expand the size of the training set and improve the model’s generalizability. We explored the pytorch and the albumentations libraries as they had proven successful in increasing accuracy in previous work <span id="id5">[<a class="reference internal" href="markdown.html#id6"><span>ADGKA19</span></a>]</span>. We also attempted to leverage a machine learning tool called autoalbument from the latter library that searches for and selects the best transformations. However, following several runs, the accuracy did not improve from baseline. We suspect it may be that the transformations were too complex for the model to learn anything significant. Using simpler transformations to augment the data was complemented by results found in our literature review <span id="id6">[<a class="reference internal" href="markdown.html#id12"><span>EKN+17</span></a>,<a class="reference internal" href="markdown.html#id9"><span>LMK20</span></a>]</span>. A variety of classic transformations were tested and the model’s performance on these augmented datasets were documented <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb">here</a>. The transformations that led to the best performance were adding random vertical and horizontal flipping along with random brightness and contrast adjustment, with a probability of 50%.</p>
+<div class="section" id="data-preparation">
+<span id="data-prep"></span><h3>4.1 Data Preparation<a class="headerlink" href="#data-preparation" title="Permalink to this headline">¶</a></h3>
+<p>Given the small size of the dataset, image augmentation techniques were used to expand the size of the training set and improve the model’s generalizability. We explored the pytorch and the albumentations libraries as they had proven successful in increasing accuracy in previous work <span id="id5">[<a class="reference internal" href="#id12">Al-Dhabyani <em>et al.</em>, 2019</a>]</span>. We also attempted to leverage a machine learning tool called autoalbument from the latter library that searches for and selects the best transformations. However, following several runs, the accuracy did not improve from baseline. We suspect it may be that the transformations were too complex for the model to learn anything significant. Using simpler transformations to augment the data was complemented by results found in our literature review <span id="id6">[<a class="reference internal" href="#id18">Esteva <em>et al.</em>, 2017</a>, <a class="reference internal" href="#id15">Loey <em>et al.</em>, 2020</a>]</span>. A variety of classic transformations were tested and the model’s performance on these augmented datasets were documented <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb">here</a>. The transformations that led to the best performance were adding random vertical and horizontal flipping along with random brightness and contrast adjustment, with a probability of 50%.</p>
 <div class="figure align-default" id="transformation">
 <a class="reference internal image-reference" href="_images/transformed_image.png"><img alt="_images/transformed_image.png" src="_images/transformed_image.png" style="height: 200px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Final image transformations included random vertical and horizontal flipping and random brightness and contrast adjustment.</span><a class="headerlink" href="#transformation" title="Permalink to this image">¶</a></p>
 </div>
-<p>3.2 Model Development</p>
+</div>
+<div class="section" id="model-development">
+<span id="model-dev"></span><h3>4.2 Model Development<a class="headerlink" href="#model-development" title="Permalink to this headline">¶</a></h3>
 <p>The augmented data is then used to train a CNN model using transfer learning. There are many popular architectures for transfer learning models that have proven successful as discussed in our literature review. As such, we investigated the following structures: VGG16, ResNet, DenseNet and Inception. Each of the models were incorporated with our small dataset, trained in separate experiments utilizing techniques to optimize the parameters of the model to maximize its ability to learn. To compare the performance of the different architectures, the team considered the accuracy and recall scores of the models when tested on our test set.</p>
 <div class="figure align-default" id="acc-chart">
 <a class="reference internal image-reference" href="_images/model_acc_bar_chart.png"><img alt="_images/model_acc_bar_chart.png" src="_images/model_acc_bar_chart.png" style="height: 150px;" /></a>
@@ -306,29 +330,34 @@
 <a class="reference internal image-reference" href="_images/size_df.png"><img alt="_images/size_df.png" src="_images/size_df.png" style="height: 250px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Comparison of the file size of the different models revealed that DenseNet was the smallest model.</span><a class="headerlink" href="#size-df" title="Permalink to this image">¶</a></p>
 </div>
+</div>
+<div class="section" id="object-detection">
+<span id="obj-detect"></span><h3>4.3 Object Detection<a class="headerlink" href="#object-detection" title="Permalink to this headline">¶</a></h3>
 <p>Our next objective was to implement object detection into our pipeline, giving us the ability to identify the exact location of lipohypertrophy on unseen test images. To implement object detection using a popular framework called YOLO, the team created bounding boxes around the location of the lipohypertrophy masses in the positive training images using the annotated ultrasound images as a guide. Next, using the YOLOv5 framework, the Yolov5m model was trained for 200 epochs with an image size of 320 and a batch size of 8. The team experimented with different training parameters to find that the aforementioned training parameters produce optimal results.</p>
 <div class="figure align-default" id="obj-det">
 <a class="reference internal image-reference" href="_images/object_detect_example.png"><img alt="_images/object_detect_example.png" src="_images/object_detect_example.png" style="height: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Our final object detection model results on a test sample reveals promising results. The top row indicates the true location of lipohypertrophy and the bottom row indicates where the model thinks the lipohypertrophy is. The number on the red box indicates the model’s confidence.</span><a class="headerlink" href="#obj-det" title="Permalink to this image">¶</a></p>
 </div>
 </div>
+</div>
 <div class="section" id="data-product-and-results">
-<h2>Data Product and Results<a class="headerlink" href="#data-product-and-results" title="Permalink to this headline">¶</a></h2>
+<span id="data-product"></span><h2>5. Data Product and Results<a class="headerlink" href="#data-product-and-results" title="Permalink to this headline">¶</a></h2>
+<p>Our project comprised of two key data products:</p>
+<ol class="simple">
+<li><p>Source Code</p></li>
+<li><p>Web application</p></li>
+</ol>
+<p>We describe these products in detail below.</p>
 <p>The first deliverable data product is the source code including an environmental file (.yaml), command-line enabled python scripts to perform train-validation-test split on image folders, modeling, evaluation, and deployment, and a Makefile that automates the entire process. The team expects our partner to use the source code to refit the lipohypertrophy classification model as more ultrasound images become available. The python scripts are built with optional arguments for model hyperparameters, which makes this a flexible tool to work with. The Makefile renders the process automatic and makes the model refitting effortless. However, the source code requires a certain degree of python and command line interface knowledge.</p>
-<p>The second deliverable is a web application for our partner to interact with the lipohypertrophy classification and object detection models. The team expects our partner to use this app to upload one or multiple cropped ultrasound images, and get an instant prediction of lipohypertrophy presence along with the prediction confidence. If the prediction is positive, a red box will appear on the image to indicate the proposed lipohypertrophy area. The app is deployed on Streamlit share and Heroku, two free-service deployment platforms. The team sent a special request form to Streamlit to increase the allocated resources under Streamlit’s “good for the world” projects program. The request was approved and the app deployed on Streamlit share runs much faster in comparison to that deployed on Heroku; which now serves as a backup. Future (larger) models could be hosted on cloud based servers since they are more flexible and secure.</p>
-<p>The team and capstone partner evaluated the merits of both a desktop and web app. A desktop app would allow our partner to interact with the model without internet access, and has lower maintenance costs. However, installing the app on hospital computers requires internal IT clearance. On the other hand, the web app decided on the web app as it does not require IT clearance for use. The desktop app was deemed less preferable by our partner due to potential IT clearance issues.</p>
+<p>The second deliverable is a web application as shown in <a class="reference internal" href="#web-app"><span class="std std-numref">Fig. 10</span></a> for our partner to interact with the lipohypertrophy classification and object detection models. A web application was an ideal choice compared to a local desktop app since the former does not require internal IT clearance, making it more ideal for our partner. The team expects our partner to use this app to upload one or multiple cropped ultrasound images, and get an instant prediction of lipohypertrophy presence along with the prediction confidence. If the prediction is positive, a red box will appear on the image to indicate the proposed lipohypertrophy area. The app is deployed on Streamlit share and Heroku, two free-service deployment platforms. The team sent a special request form to Streamlit to increase the allocated resources under Streamlit’s “good for the world” projects program. The request was approved and the app deployed on Streamlit share runs much faster in comparison to that deployed on Heroku; which now serves as a backup. Future (larger) models could be hosted on cloud based servers since they are more flexible and secure.</p>
 <div class="figure align-default" id="web-app">
 <a class="reference internal image-reference" href="_images/demo_gif_v2.gif"><img alt="_images/demo_gif_v2.gif" src="_images/demo_gif_v2.gif" style="height: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Our web application on Streamlit can take multiple images and provides a final prediction and its confidence for a given image. If the model is considered positive, the model will also propose the location of the lipohypetrophy.</span><a class="headerlink" href="#web-app" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Our <a class="reference external" href="https://share.streamlit.io/xudongyang2/lipo_deployment/demo_v2.py">web application</a> on Streamlit can take multiple images and provides a final prediction and its confidence for a given image. If the model is considered positive, the model will also propose the location of the lipohypetrophy.</span><a class="headerlink" href="#web-app" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="conclusions-and-recommendations">
-<h2>Conclusions and recommendations<a class="headerlink" href="#conclusions-and-recommendations" title="Permalink to this headline">¶</a></h2>
-<p>In this project, we aimed to investigate whether supervised machine learning techniques could be leveraged to detect the presence of lipohypertrophy in ultrasound images. Our trained models have demonstrated that this is indeed a possibility as they are accurately predicting the presence of lipohypertrophy on 76% of previously unseen data. Furthermore, our team has developed two data products. The data products are:</p>
-<ol class="simple">
-<li><p>Well-documented source code and an automated machine learning pipeline</p></li>
-<li><p>An interactive web application</p></li>
-</ol>
+<span id="recommendations"></span><h2>6. Conclusions and recommendations<a class="headerlink" href="#conclusions-and-recommendations" title="Permalink to this headline">¶</a></h2>
+<p>In this project, we aimed to investigate whether supervised machine learning techniques could be leveraged to detect the presence of lipohypertrophy in ultrasound images. Our trained models have demonstrated that this is indeed a possibility as they are accurately predicting the presence of lipohypertrophy on 76% of previously unseen data. Furthermore, our team has developed two data products. The data products are a well-documented source code and an automated machine learning pipeline and an interactive web application.</p>
 <p>The open-source licensed source code will allow future researchers and developers to borrow from and build upon this work. The Makefile included with the project makes it seamless to update the model with an expanded dataset. The web application allows healthcare providers to easily interact with our machine learning model to discover which sites are safe for insulin injection and which sites should be avoided.</p>
 <p>Although our project has demonstrated that machine learning can be used to detect lipohypertrophy, there are some key limitations that should be addressed before it is used in the clinical setting. These key limitations are as follows:</p>
 <ol class="simple">
@@ -338,7 +367,7 @@
 </ol>
 <p>To address the limitations outlined above, our team has made the following recommendations:</p>
 <ol class="simple">
-<li><p>Addition of more labelled images – In line with the size of the dataset in similar studies <span id="id7">[<a class="reference internal" href="markdown.html#id11"><span>XLL+18</span></a>,<a class="reference internal" href="markdown.html#id10"><span>CM17</span></a>]</span>, we recommend increasing the dataset to at least 1000 images and ideally up to several thousand images.</p></li>
+<li><p>Addition of more labelled images – In line with the size of the dataset in similar studies <span id="id7">[<a class="reference internal" href="#id16">Cheng and Malhi, 2017</a>, <a class="reference internal" href="#id17">Xiao <em>et al.</em>, 2018</a>]</span>, we recommend increasing the dataset to at least 1000 images and ideally up to several thousand images.</p></li>
 <li><p>Increasing computational resources - we recommend obtaining funding for additional computing resources for both the development and deployment of future models.</p></li>
 <li><p>Adding additional functionality such as a cropping tool within the web interface.</p></li>
 </ol>
@@ -346,12 +375,6 @@
 <div class="section" id="bibliography">
 <h2>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h2>
 <p id="id8"><dl class="citation">
-<dt class="label" id="id11"><span class="brackets">kaga</span></dt>
-<dd><p>Ultrasound nerve segmentation. URL: <a class="reference external" href="https://www.kaggle.com/c/ultrasound-nerve-segmentation/overview">https://www.kaggle.com/c/ultrasound-nerve-segmentation/overview</a>.</p>
-</dd>
-<dt class="label" id="id10"><span class="brackets">kagb</span></dt>
-<dd><p>Vinbigdata chest x-ray abnormalities detection. URL: <a class="reference external" href="https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/code?competitionId=24800&amp;sortBy=voteCount">https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/code?competitionId=24800&amp;sortBy=voteCount</a>.</p>
-</dd>
 <dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id5">ADGKA19</a></span></dt>
 <dd><p>Walid Al-Dhabyani, Mohammed Gomaa, Hussien Khaled, and Fahmy Aly. Deep learning approaches for data augmentation and classification of breast masses using ultrasound images. <em>Int. J. Adv. Comput. Sci. Appl</em>, 10(5):1–11, 2019.</p>
 </dd>
@@ -370,7 +393,13 @@
 <dt class="label" id="id19"><span class="brackets">HZL18</span></dt>
 <dd><p>Qinghua Huang, Fan Zhang, and Xuelong Li. Machine learning in ultrasound computer-aided diagnostic systems: a survey. <em>BioMed research international</em>, 2018.</p>
 </dd>
-<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id1">KPCM18</a></span></dt>
+<dt class="label" id="id11"><span class="brackets">Kag16</span></dt>
+<dd><p>Kaggle. Ultrasound nerve segmentation. 2016. URL: <a class="reference external" href="https://www.kaggle.com/c/ultrasound-nerve-segmentation/overview">https://www.kaggle.com/c/ultrasound-nerve-segmentation/overview</a>.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets">Kag21</span></dt>
+<dd><p>Kaggle. Vinbigdata chest x-ray abnormalities detection. 2021. URL: <a class="reference external" href="https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/code?competitionId=24800&amp;sortBy=voteCount">https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/code?competitionId=24800&amp;sortBy=voteCount</a>.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">KPCM18</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>,<a href="#id4">3</a>)</span></dt>
 <dd><p>JE Kapeluto, BW Paty, SD Chang, and GS Meneilly. Ultrasound detection of insulin-induced lipohypertrophy in type 1 and type 2 diabetes. <em>Diabetic Medicine</em>, 35(10):1383–1390, 2018.</p>
 </dd>
 <dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id6">LMK20</a></span></dt>
@@ -393,8 +422,8 @@
 </dd>
 </dl>
 </p>
-<div class="toctree-wrapper compound">
 </div>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -435,7 +464,7 @@
         
           By Ela Bandari, Lara Habashy, Javairia Raza, and Peter Yang<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>

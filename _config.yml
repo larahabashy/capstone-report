@@ -19,7 +19,10 @@ latex:
 bibtex_bibfiles:
   - references.bib
 
-bibtex_reference_style: author_year
+sphinx:
+  config:
+    bibtex_reference_style: author_year
+
 
 # Information about where the book exists on the web
 repository: 

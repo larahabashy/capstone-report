@@ -1,8 +1,6 @@
-
-# Table of content
-# Learn more at https://jupyterbook.org/customize/toc.html
-#
-- file: capstone-report
+format: jb-article
+root: capstone-report
+sections:
 - file: lit_review
 - file: documentation
 - file: glossary
