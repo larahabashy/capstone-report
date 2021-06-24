@@ -3,14 +3,14 @@
 
 By: Ela Bandari, Lara Habashy, Javairia Raza and Peter Yang 
 
-## Executive Summary
+## 1. Executive Summary
 Subclinical lipohypertrophy is traditionally evaluated by visual inspection or palpation. Recent work has shown that lipohypertrophy may be detected by ultrasound imaging {cite:p}`kapeluto2018ultrasound`. However, the criteria used to classify lipohypertrophy using ultrasound imaging is only familiar to and implemented by a small group of physicians {cite:p}`madden_2021`. In an effort to improve the accessibility and efficiency of this method of detection, we have developed a supervised machine learning model to detect lipohypertrophy in ultrasound images. 
 
-To develop our machine learning model, we tested a variety of image augmentation techniques and ultimately decided on augmenting our dataset by adding random flipping, contrast and brightness. We then fit a variety of pre-existing model architectures trained on thousands of images to our augmented dataset. We optimized the parameters by which the model learned and then carefully examined the different models’ performance and fine tuned them to our dataset before selecting the best performing model. Our final model accurately classified 76% of unseen test data. We have made our model accessible to potential users via a [web interface](https://share.streamlit.io/xudongyang2/lipo_deployment/demo_v2.py). Our work has demonstrated the potential that supervised machine learning holds in accurately detecting lipohypertrophy; however, the scarcity of the ultrasound images has been a contributor to the model’s shortcomings. We have outlined a set of recommendations for improving this project; the most notable of which is re-fitting the model using a larger dataset.
+We developed an optimal machine learning model through an iterative process of data augmentation, hyperparameter tuning, and architecture selection. The final optimal model accurately classified 76% of unseen test data. We tested different image augmentation techniques and ultimately decided on adding random flipping, contrast and brightness. We then fit a variety of pre-existing model architectures trained on thousands of images to our augmented dataset. We optimized the parameters by which the model learned and then carefully examined the different models’ performance and fine tuned them to our dataset before selecting the best performing model. We have made our best performing model accessible to potential users via a [web interface](https://share.streamlit.io/xudongyang2/lipo_deployment/demo_v2.py). Our work has demonstrated the potential that supervised machine learning holds in accurately detecting lipohypertrophy; however, the scarcity of the ultrasound images has been a contributor to the model’s shortcomings. We have outlined a set of recommendations for improving this project; the most notable of which is re-fitting the model using a larger dataset.
 
 
-## Introduction
-Subclinical lipohypertrophy is a common complication for diabetic patients who inject insulin. It is defined as the growth of fat cells and fibrous tissue in the deepest layer of the skin following repeated insulin injections in the same area. It is critical that insulin is not injected into areas of lipohypertrophy as it reduces the effectiveness of the insulin. Fortunately, research by {cite:t}`kapeluto2018ultrasound` has found ultrasound imaging techniques are more accurate in finding these masses than a physical examination of the body by a healthcare professional. But, currently, the criteria to classify lipohypertrophy using ultrasound imaging is only implemented by a small group of physicians. To expand the usability of this criteria to a larger set of healthcare professionals, the capstone partner is interested in seeing if we can leverage supervised machine learning techniques to accurately classify the presence of lipohypertrophy given an ultrasound image.
+## 2. Introduction
+Subclinical lipohypertrophy is a common complication for diabetic patients who inject insulin. It is defined as the growth of fat cells and fibrous tissue in the deepest layer of the skin following repeated insulin injections in the same area. It is critical that insulin is not injected into areas of lipohypertrophy as it reduces the effectiveness of the insulin {cite:p}`kapeluto2018ultrasound`. However, recent research by {cite:t}`kapeluto2018ultrasound` has found ultrasound imaging techniques are more accurate in finding these masses than a physical examination of the body by a healthcare professional. Examples of these images are shown in {numref}`example` below. Unfortunately, the criteria to classify lipohypertrophy using ultrasound imaging is only implemented by a small group of physicians. To expand the usability of this criteria to a larger set of healthcare professionals, the capstone partner is interested in seeing if we can leverage supervised machine learning techniques to accurately classify the presence of lipohypertrophy given an ultrasound image.
 
 ```{figure} image/example.png
 ---
@@ -20,20 +20,21 @@ name: example
 Some examples of images found in our dataset. Top row is negative (no lipohypertrophy present) and bottom row is positive (lipohypertrophy present) images where the yellow annotations indicate the exact area of the mass. 
 ```
 
-Our current dataset, as shown in Figure 2 (below), includes 218 negative images (no lipohypertrophy present) and 135 positive images (lipohypertrophy present) which is typically considered to be a very small dataset for a deep learning model. Thus, our specific data science objectives for this project include:
+Our current dataset includes 218 negative images (no lipohypertrophy present) and 135 positive images (lipohypertrophy present) as shown in {numref}`counts_df` below. Notably, this is considered to be a very small dataset for a deep learning model. 
 
-1) Use the provided dataset to develop and evaluate the efficacy of an image classification model. Some of our specific goals include:
+Our specific data science objectives for this project include:
 
-    1.1 Data Augmentations
-  
-    1.2 Transfer Learning
-  
-    1.3 Optimization of Learning
-  
-    1.4 Object Detection
-  
-2) Deploy the model for a non-technical audience.
+1. Use the provided dataset to develop and evaluate the efficacy of an image classification model. Some of our specific goals include:
 
+    1. Data Augmentation: applying random image transformations as to expland the dataset (Section 4.1)
+  
+    2. Transfer Learning: using a model that has been pre-trained on thousands of images and using it for our dataset (Section 4.2)
+  
+    3. Optimization of Learning: figuring out what are the best parameters that will make the model most optimal for learning the data (Section 4.2)
+  
+    4. Object Detection: training a model to detect the location of lipohypertrophy on an image (Section 4.3)
+  
+2. Deploy the model for a non-technical audience (Section 5). 
 
 
 ```{figure} image/counts_df.png
@@ -44,6 +45,7 @@ name: counts_df
 The total number of positive and negative examples in our dataset.
 ```
 
+Before beginning any model training, the data was split into train, validation and test splits of 70%, 15% and 15% respectively. 
  
 ## Literature Review
 
@@ -127,13 +129,19 @@ name: obj_det
 Our final object detection model results on a test sample reveals promising results. The top row indicates the true location of lipohypertrophy and the bottom row indicates where the model thinks the lipohypertrophy is. The number on the red box indicates the model's confidence. 
 ```
 
-## Data Product and Results 
+## 5. Data Product and Results 
+
+Our project comprised of two key data products:
+
+1. Source Code
+
+2. Web application
+
+We descrive these products in detail below. 
 
 The first deliverable data product is the source code including an environmental file (.yaml), command-line enabled python scripts to perform train-validation-test split on image folders, modeling, evaluation, and deployment, and a Makefile that automates the entire process. The team expects our partner to use the source code to refit the lipohypertrophy classification model as more ultrasound images become available. The python scripts are built with optional arguments for model hyperparameters, which makes this a flexible tool to work with. The Makefile renders the process automatic and makes the model refitting effortless. However, the source code requires a certain degree of python and command line interface knowledge.
 
-The second deliverable is a web application for our partner to interact with the lipohypertrophy classification and object detection models. The team expects our partner to use this app to upload one or multiple cropped ultrasound images, and get an instant prediction of lipohypertrophy presence along with the prediction confidence. If the prediction is positive, a red box will appear on the image to indicate the proposed lipohypertrophy area. The app is deployed on Streamlit share and Heroku, two free-service deployment platforms. The team sent a special request form to Streamlit to increase the allocated resources under Streamlit’s “good for the world” projects program. The request was approved and the app deployed on Streamlit share runs much faster in comparison to that deployed on Heroku; which now serves as a backup. Future (larger) models could be hosted on cloud based servers since they are more flexible and secure.
-
-The team and capstone partner evaluated the merits of both a desktop and web app. A desktop app would allow our partner to interact with the model without internet access, and has lower maintenance costs. However, installing the app on hospital computers requires internal IT clearance. On the other hand, the web app decided on the web app as it does not require IT clearance for use. The desktop app was deemed less preferable by our partner due to potential IT clearance issues.
+The second deliverable is a web application as shown in {numref}`web_app` for our partner to interact with the lipohypertrophy classification and object detection models. A web application was an ideal choice compared to a local desktop app since the former does not require internal IT clearance, making it more ideal for our partner. The team expects our partner to use this app to upload one or multiple cropped ultrasound images, and get an instant prediction of lipohypertrophy presence along with the prediction confidence. If the prediction is positive, a red box will appear on the image to indicate the proposed lipohypertrophy area. The app is deployed on Streamlit share and Heroku, two free-service deployment platforms. The team sent a special request form to Streamlit to increase the allocated resources under Streamlit’s “good for the world” projects program. The request was approved and the app deployed on Streamlit share runs much faster in comparison to that deployed on Heroku; which now serves as a backup. Future (larger) models could be hosted on cloud based servers since they are more flexible and secure.
 
 ```{figure} image/demo_gif_v2.gif
 ---
@@ -143,12 +151,9 @@ name: web_app
 Our web application on Streamlit can take multiple images and provides a final prediction and its confidence for a given image. If the model is considered positive, the model will also propose the location of the lipohypetrophy. 
 ```
 
-## Conclusions and recommendations
+## 6. Conclusions and recommendations
 
-In this project, we aimed to investigate whether supervised machine learning techniques could be leveraged to detect the presence of lipohypertrophy in ultrasound images. Our trained models have demonstrated that this is indeed a possibility as they are accurately predicting the presence of lipohypertrophy on 76% of previously unseen data. Furthermore, our team has developed two data products. The data products are: 
-
-1) Well-documented source code and an automated machine learning pipeline
-2) An interactive web application
+In this project, we aimed to investigate whether supervised machine learning techniques could be leveraged to detect the presence of lipohypertrophy in ultrasound images. Our trained models have demonstrated that this is indeed a possibility as they are accurately predicting the presence of lipohypertrophy on 76% of previously unseen data. Furthermore, our team has developed two data products. The data products are a well-documented source code and an automated machine learning pipeline and an interactive web application
 
 The open-source licensed source code will allow future researchers and developers to borrow from and build upon this work. The Makefile included with the project makes it seamless to update the model with an expanded dataset. The web application allows healthcare providers to easily interact with our machine learning model to discover which sites are safe for insulin injection and which sites should be avoided. 
 
