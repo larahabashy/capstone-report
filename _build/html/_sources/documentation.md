@@ -2,7 +2,7 @@
 
 In this section of the Appendix, we attempt to highlight at a high level, some of the decisions that were taken throughout the duration of this capstone project. This section presents some of the technical details behind those decisions.
 
-### Data Augemntations 
+### Data Augmentations 
 
 The team initially used a web interface provided by the albumentations library, powered by PyTorch for image transformations, that allowed us to see what the different transformations would look like. Based on that, we chose some transformations to test in our pipeline. This experiment can be found [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb). The final model was chosen based on the transformations yielding the highest accuracy score.
 
@@ -24,9 +24,11 @@ The following functions were considered for the choice of the loss function used
 4. Hinge
 5. The mean absolute error 
 
+Loss Function Implemeted in CNN Model:
+
 - BCEWithLogitsLoss: Cross-Entropy loss [nn.BCEWithLogitsLoss](https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss) combines a Sigmoid layer and the BCELoss in one single class. This loss function in often used in classification problems as a measure of reconstruction error. It uses log loss, which for logistic regression is a special case for cross-entropy loss for multi-class classification.
 
-Alternative Loss Functions Considered
+Alternative Loss Functions Considered:
 
 - NLLLoss: Negative Log-Likelihood Loss
 This function expands the binary cross-entropy loss. It requires an additional logSoftMax layer in the last layer of the network. As it outputs probablities, they must sum to 1.
@@ -58,11 +60,13 @@ The model variants that were considered are documented below, along with some no
 We ensured all models have batch normalization implemented. This will standardize the inputs of a network improving the overall efficiency by reducing the number of epochs required to train for a given model.
 
 #### Dropout Layer
-The implementation of dropout layers within the model's architecture to reduce the generalizable error were considered. This is due to the fact that a dropout layer with random probability equal to the dropout rate, drop nodes from a network between layers. However, the dropout layers experiment with varying dropout rates did not show any success for our dataset. To see this exploration, click [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densemodels-ax-dropout-layers.ipynb). 
+In an effort to reduce the generalization error and high confidence in misclassifications, we considered the implementation of dropout layers within the model's architecture. Dropout layers drop nodes in the network such that the model learns more robustly and the validation performance is improved. This is due to the fact that a dropout layer with random probability equal to the dropout rate, drop nodes from a network between layers. However, the dropout layers experiment with varying dropout rates did not show any success for our dataset. Although the dropout layers did manage to reduce misclassifications in the models, the overall reduced accuracy was not remarkable enough to implement those layers in our optimal model. To see this exploration, click [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densemodels-ax-dropout-layers.ipynb). 
+
+#### Ensemble Model
+Another way to reduce the generalization error is to average the predictions from all four models, called an ensemble. However, an ensemble would not be feasible as it requires lots of resources such as enough CPU to train the models and in our case, since the models performed too similarily, the average accuracy would be lower. 
 
 #### Recall Optimization
-To reduce the generalization error, we considered varying the pos_weight argument in the loss function. Increasing the positive weights to more than 1 would mean heavier penalization (loss) on positives, in an attempt to reduce false negatives (a true positive where the model predicts is negative) and improve recall. To see this exploration, which is also used to combat the class imbalance issue, click [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/pos-weight-exploration.ipynb).
-
+To reduce the generalization error, we considered varying the pos_weight argument in the loss function. Positive weight (pos_weight) is one argument of the loss function used in our CNN model which, if greater than 1, prioritizes the positive examples more such that there is a heavier penalization (loss) on labelling the positive lipohypertrophy examples incorrectly. Increasing the positive weights to more than 1, we would expect the recall score to improve since there would be heavier penalization (loss) on positive examples, in an attempt to reduce false negatives (a true positive where the model predicts is negative). However, this method was not implemented in our final model as it proved to be unstable. After conducting a few experiments, we found high variance in the [results](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/pos-weight-exploration.ipynb). 
 
 ### Hyperparameter Optimization 
 
