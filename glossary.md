@@ -18,6 +18,8 @@
 
 **RCNNs:** short for recurrent correlation neural networks, RCNNs are a machine learning model used for object detection. RCNNs learn the data but dividing it into sections and taking the most important features to then classify.
 
+**Radiomics:** a technique using data characterization algorithms to extract a large number of features from radiographic medical images such as ultrasound images.
+
 **Recall:** a ratio representing the number of true positives divided by the number of true positives plus the number of false negatives. Optimizing recall means to reduce the number of false negatives.
 
 **Transfer learning:** a technique that allows us to leverage pre-existing models that have already been trained on thousands of images from various data sources and applying them to our dataset.
@@ -25,6 +27,5 @@
 **Sigmoid layer:** a sigmoid layer in a neural network applies a sigmoid function to the input such that the output is bounded in the interval (0,1).
 
 **YOLO:** short for You Only Look Once, YOLO is an object detection framework that uses convolutional neural networks to train on images and optimize detection performance in real-time. 
-
 
 

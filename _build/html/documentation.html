@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Appendix B - Documentation &#8212; Capstone Report</title>
+    <title>Appendix A - Documentation &#8212; Capstone Report</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Appendix C - Glossary" href="glossary.html" />
-    <link rel="prev" title="Appendix A - Literature Review" href="lit_review.html" />
+    <link rel="next" title="Appendix B - Glossary" href="glossary.html" />
+    <link rel="prev" title="Final Report" href="capstone-report.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -90,19 +90,14 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="lit_review.html">
-   Appendix A - Literature Review
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Appendix B - Documentation
+   Appendix A - Documentation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="glossary.html">
-   Appendix C - Glossary
+   Appendix B - Glossary
   </a>
  </li>
 </ul>
@@ -252,8 +247,8 @@
         
               <div>
                 
-  <div class="section" id="appendix-b-documentation">
-<h1>Appendix B - Documentation<a class="headerlink" href="#appendix-b-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="appendix-a-documentation">
+<h1>Appendix A - Documentation<a class="headerlink" href="#appendix-a-documentation" title="Permalink to this headline">¶</a></h1>
 <p>In this section of the Appendix, we attempt to highlight at a high level, some of the decisions that were taken throughout the duration of this capstone project. This section presents some of the technical details behind those decisions.</p>
 <div class="section" id="data-augmentations">
 <h2>Data Augmentations<a class="headerlink" href="#data-augmentations" title="Permalink to this headline">¶</a></h2>
@@ -311,7 +306,7 @@ The function also has various reduction of output options such as the weighted m
 </div>
 <div class="section" id="dropout-layer">
 <h3>Dropout Layer<a class="headerlink" href="#dropout-layer" title="Permalink to this headline">¶</a></h3>
-<p>In an effort to reduce the generalization error and high confidence in misclassifications, we considered the implementation of dropout layers within the model’s architecture. Dropout layers drop nodes in the network such that the model learns more robustly and the validation performance is improved. This is due to the fact that a dropout layer with random probability equal to the dropout rate, drop nodes from a network between layers. However, the dropout layers experiment with varying dropout rates did not show any success for our dataset. Although the dropout layers did manage to reduce misclassifications in the models, the overall reduced accuracy was not remarkable enough to implement those layers in our optimal model. To see this exploration, click <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densemodels-ax-dropout-layers.ipynb">here</a>.</p>
+<p>In an effort to reduce the generalization error and high confidence in misclassifications, we considered the implementation of dropout layers within the model’s architecture. Dropout layers will randomly drop nodes in the network such that the model learns more robustly and the validation performance is improved. A dropout rate can be specified to indicate the probablity at which nodes are dropped. The dropout layers experiments with varying dropout rates did not show any success for our dataset. Although the dropout layers managed to reduce misclassifications in the models, the overall reduced accuracy was not remarkable enough to implement those layers in our optimal model. To see this exploration, click <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densemodels-ax-dropout-layers.ipynb">here</a>.</p>
 </div>
 <div class="section" id="ensemble-model">
 <h3>Ensemble Model<a class="headerlink" href="#ensemble-model" title="Permalink to this headline">¶</a></h3>
@@ -384,8 +379,8 @@ The function also has various reduction of output options such as the weighted m
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="lit_review.html" title="previous page">Appendix A - Literature Review</a>
-    <a class='right-next' id="next-link" href="glossary.html" title="next page">Appendix C - Glossary</a>
+    <a class='left-prev' id="prev-link" href="capstone-report.html" title="previous page">Final Report</a>
+    <a class='right-next' id="next-link" href="glossary.html" title="next page">Appendix B - Glossary</a>
 
         </div>
         

@@ -1,4 +1,4 @@
-## Appendix B - Documentation
+## Appendix A - Documentation
 
 In this section of the Appendix, we attempt to highlight at a high level, some of the decisions that were taken throughout the duration of this capstone project. This section presents some of the technical details behind those decisions.
 
@@ -60,7 +60,7 @@ The model variants that were considered are documented below, along with some no
 We ensured all models have batch normalization implemented. This will standardize the inputs of a network improving the overall efficiency by reducing the number of epochs required to train for a given model.
 
 #### Dropout Layer
-In an effort to reduce the generalization error and high confidence in misclassifications, we considered the implementation of dropout layers within the model's architecture. Dropout layers drop nodes in the network such that the model learns more robustly and the validation performance is improved. This is due to the fact that a dropout layer with random probability equal to the dropout rate, drop nodes from a network between layers. However, the dropout layers experiment with varying dropout rates did not show any success for our dataset. Although the dropout layers did manage to reduce misclassifications in the models, the overall reduced accuracy was not remarkable enough to implement those layers in our optimal model. To see this exploration, click [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densemodels-ax-dropout-layers.ipynb). 
+In an effort to reduce the generalization error and high confidence in misclassifications, we considered the implementation of dropout layers within the model's architecture. Dropout layers will randomly drop nodes in the network such that the model learns more robustly and the validation performance is improved. A dropout rate can be specified to indicate the probablity at which nodes are dropped. The dropout layers experiments with varying dropout rates did not show any success for our dataset. Although the dropout layers managed to reduce misclassifications in the models, the overall reduced accuracy was not remarkable enough to implement those layers in our optimal model. To see this exploration, click [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densemodels-ax-dropout-layers.ipynb). 
 
 #### Ensemble Model
 Another way to reduce the generalization error is to average the predictions from all four models, called an ensemble. However, an ensemble would not be feasible as it requires lots of resources such as enough CPU to train the models and in our case, since the models performed too similarily, the average accuracy would be lower. 
