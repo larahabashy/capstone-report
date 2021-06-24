@@ -45,7 +45,7 @@ name: counts_df
 The total number of positive and negative examples in our dataset.
 ```
 
-Before beginning any model training, the data was split into train, validation and test splits of 70%, 15% and 15% respectively. 
+Before beginning any model training, the data was split into train, validation and test splits of 70%, 15% and 15% respectively. Here, we define baseline as a model that only predicts negative and has 62% accuracy. Our goal for this project was to develop a model that performed better than baseline. 
  
 ## Literature Review
 

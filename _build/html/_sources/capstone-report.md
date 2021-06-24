@@ -26,16 +26,15 @@ Our specific data science objectives for this project include:
 
 1. Use the provided dataset to develop and evaluate the efficacy of an image classification model. Some of our specific goals include:
 
-    1. Data Augmentations
+    1. Data Augmentation: applying random image transformations as to expland the dataset (Section 4.1)
   
-    2. Transfer Learning
+    2. Transfer Learning: using a model that has been pre-trained on thousands of images and using it for our dataset (Section 4.2)
   
-    3. Optimization of Learning
+    3. Optimization of Learning: figuring out what are the best parameters that will make the model most optimal for learning the data (Section 4.2)
   
-    4. Object Detection
+    4. Object Detection: training a model to detect the location of lipohypertrophy on an image (Section 4.3)
   
-2) Deploy the model for a non-technical audience.
-
+2. Deploy the model for a non-technical audience (Section 5). 
 
 
 ```{figure} image/counts_df.png
@@ -46,6 +45,7 @@ name: counts_df
 The total number of positive and negative examples in our dataset.
 ```
 
+Before beginning any model training, the data was split into train, validation and test splits of 70%, 15% and 15% respectively. Here, we define baseline as a model that only predicts negative and has 62% accuracy. Our goal for this project was to develop a model that performed better than baseline. 
  
 ## Literature Review
 
@@ -131,11 +131,17 @@ Our final object detection model results on a test sample reveals promising resu
 
 ## 5. Data Product and Results 
 
+Our project comprised of two key data products:
+
+1. Source Code
+
+2. Web application
+
+We descrive these products in detail below. 
+
 The first deliverable data product is the source code including an environmental file (.yaml), command-line enabled python scripts to perform train-validation-test split on image folders, modeling, evaluation, and deployment, and a Makefile that automates the entire process. The team expects our partner to use the source code to refit the lipohypertrophy classification model as more ultrasound images become available. The python scripts are built with optional arguments for model hyperparameters, which makes this a flexible tool to work with. The Makefile renders the process automatic and makes the model refitting effortless. However, the source code requires a certain degree of python and command line interface knowledge.
 
-The second deliverable is a web application for our partner to interact with the lipohypertrophy classification and object detection models. The team expects our partner to use this app to upload one or multiple cropped ultrasound images, and get an instant prediction of lipohypertrophy presence along with the prediction confidence. If the prediction is positive, a red box will appear on the image to indicate the proposed lipohypertrophy area. The app is deployed on Streamlit share and Heroku, two free-service deployment platforms. The team sent a special request form to Streamlit to increase the allocated resources under Streamlit’s “good for the world” projects program. The request was approved and the app deployed on Streamlit share runs much faster in comparison to that deployed on Heroku; which now serves as a backup. Future (larger) models could be hosted on cloud based servers since they are more flexible and secure.
-
-The team and capstone partner evaluated the merits of both a desktop and web app. A desktop app would allow our partner to interact with the model without internet access, and has lower maintenance costs. However, installing the app on hospital computers requires internal IT clearance. On the other hand, the web app decided on the web app as it does not require IT clearance for use. The desktop app was deemed less preferable by our partner due to potential IT clearance issues.
+The second deliverable is a web application as shown in {numref}`web_app` for our partner to interact with the lipohypertrophy classification and object detection models. A web application was an ideal choice compared to a local desktop app since the former does not require internal IT clearance, making it more ideal for our partner. The team expects our partner to use this app to upload one or multiple cropped ultrasound images, and get an instant prediction of lipohypertrophy presence along with the prediction confidence. If the prediction is positive, a red box will appear on the image to indicate the proposed lipohypertrophy area. The app is deployed on Streamlit share and Heroku, two free-service deployment platforms. The team sent a special request form to Streamlit to increase the allocated resources under Streamlit’s “good for the world” projects program. The request was approved and the app deployed on Streamlit share runs much faster in comparison to that deployed on Heroku; which now serves as a backup. Future (larger) models could be hosted on cloud based servers since they are more flexible and secure.
 
 ```{figure} image/demo_gif_v2.gif
 ---
@@ -147,10 +153,7 @@ Our web application on Streamlit can take multiple images and provides a final p
 
 ## 6. Conclusions and recommendations
 
-In this project, we aimed to investigate whether supervised machine learning techniques could be leveraged to detect the presence of lipohypertrophy in ultrasound images. Our trained models have demonstrated that this is indeed a possibility as they are accurately predicting the presence of lipohypertrophy on 76% of previously unseen data. Furthermore, our team has developed two data products. The data products are: 
-
-1) Well-documented source code and an automated machine learning pipeline
-2) An interactive web application
+In this project, we aimed to investigate whether supervised machine learning techniques could be leveraged to detect the presence of lipohypertrophy in ultrasound images. Our trained models have demonstrated that this is indeed a possibility as they are accurately predicting the presence of lipohypertrophy on 76% of previously unseen data. Furthermore, our team has developed two data products. The data products are a well-documented source code and an automated machine learning pipeline and an interactive web application
 
 The open-source licensed source code will allow future researchers and developers to borrow from and build upon this work. The Makefile included with the project makes it seamless to update the model with an expanded dataset. The web application allows healthcare providers to easily interact with our machine learning model to discover which sites are safe for insulin injection and which sites should be avoided. 
 
