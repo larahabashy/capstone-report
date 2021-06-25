@@ -44,26 +44,41 @@ name: counts_df
 ---
 The total number of positive and negative examples in our dataset.
 ```
-
-Before beginning any model training, the data was split into train, validation and test splits of 70%, 15% and 15% respectively. Here, we define baseline as a model that only predicts negative and has 62% accuracy. Our goal for this project was to develop a model that performed better than baseline. 
- 
 ## 3. Literature Review
 
-Throughout the project, the team has consulted literature to gain insight and direction on current practices relevant to our problem and our dataset to guide and validate our decision-making. Please see [Appendix A for our literature review](../lit_review.md).
+Throughout the project, the team has consulted literature to gain insight and direction on current practices relevant to our problem and our dataset to guide and validate our decision-making. Below is a summary of the relevant findings.
+
+### 3.1 Similar Work
+
+Prediction of masses in ultrasound images using machine learning techniques has been an ongoing effort in clinical practice for the past few decades. To assist physicians in diagnosing disease, many scholars have implemented techniques such as regression, decision trees, Naive Bayesian classifiers, and neural networks on patients' ultrasound imaging data {cite}`huang2018machine`. Further, many studies involving ultrasound images have preprocessed the images to extract features. This study by {cite:t}`chiao2019detection` shows that CNNs using ultrasound images perform better than radiomic models at predicting breast cancer tumours. Another recent study shows success in classifying liver masses into 1 out 5 categories with 84% accuracy using a CNN model {cite}`yasaka2018deep`.
+
+Furthermore, recent research has delved into various complex image augmentation approaches such as using GANs to generate images {cite}`al2019deep`, enlarging the dataset used for training which naturally improves the performance. The study also found that traditional transformations managed to improve model performance. Many other studies such as {cite}`esteva2017, loey2020deep` confirmed that minimal transformations such as flipping the images achieved higher prediction accuracy in their application. 
+
+We also found that transfer learning architectures are crucial for yielding reliable results as any given patient's dataset is likely too small to construct a CNN architecture. This study by {cite:t}`sun2020deep` built a CNN using DenseNet models for the prediction of breast cancer masses and achieved a test accuracy of 91%. {cite:t}`zhang2020diagnostic` also studying the diagnosis of breast cancer tumours in ultrasound images found that when compared with other architectures such as VGG16, ResNet50, and VGG19, InceptionV3 performs the best. Prediction competitions on Kaggle have proven successful with architectures such as VGG16 and Resnet, predicting masses in ultrasound images with 70-80% accuracy {cite}`kaggle2`. 
+
+For the object detection piece, along with the YOLO framework, we considered RCNNs but research showed YOLO performs well in Kaggle competitions {cite}`kaggle1` and is generally faster than RCNNs. As such, we went with the YOLO model {cite}`gandhi_2018`.
 
 ## 4. Data Science Methods 
 
+The general data science workflow for this project is shown in {numref}`workflow`. We discuss each step of the workflow in more detail in the sub-sections below.
+
 ```{figure} image/ds_workflow.png
 ---
-height: 500px
+height: 450px
 name: workflow
 ---
-Our general data science workflow for the capstone project. 
+General data science workflow for this capstone project. 
 ```
 (data-prep)= 
 ### 4.1 Data Preparation
 
-Given the small size of the dataset, image augmentation techniques were used to expand the size of the training set and improve the model's generalizability. We explored the pytorch and the albumentations libraries as they had proven successful in increasing accuracy in previous work {cite:p}`al2019deep`. We also attempted to leverage a machine learning tool called autoalbument from the latter library that searches for and selects the best transformations. However, following several runs, the accuracy did not improve from baseline. We suspect it may be that the transformations were too complex for the model to learn anything significant. Using simpler transformations to augment the data was complemented by results found in our literature review {cite:p}`esteva2017, loey2020deep`. A variety of classic transformations were tested and the model’s performance on these augmented datasets were documented [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb). The transformations that led to the best performance were adding random vertical and horizontal flipping along with random brightness and contrast adjustment, with a probability of 50%.
+#### 4.1.1 Data Splitting and Baseline Model
+
+Before beginning any model training, the data was split into train, validation and test splits of 70%, 15% and 15% respectively. Here, we define baseline as a model that only predicts negative and has 62% accuracy. Our goal for this project was to develop a model that performed better than baseline. 
+
+#### 4.1.2 Image Augmentation
+
+Given the small size of the dataset, image augmentation techniques were used to expand the size of the training set and improve the model's generalizability. We explored the pytorch {cite:p}`NEURIPS2019_9015` and the albumentations libraries as they had proven successful in increasing accuracy in previous work {cite:p}`al2019deep`. We also attempted to leverage a machine learning tool called autoalbument from the latter library that searches for and selects the best transformations. However, following several runs, the accuracy did not improve from baseline. We suspect it may be that the transformations were too complex for the model to learn anything significant. Using simpler transformations to augment the data was complemented by results found in our literature review {cite:p}`esteva2017, loey2020deep`. A variety of classic transformations were tested and the model’s performance on these augmented datasets were documented [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb). The transformations that led to the best performance were adding random vertical and horizontal flipping along with random brightness and contrast adjustment, with a probability of 50%, augmenting the images as seen below in {numref}`transformation`.
 
 ```{figure} image/transformed_image.png
 ---
@@ -75,7 +90,7 @@ Final image transformations included random vertical and horizontal flipping and
 (model-dev)=
 ### 4.2 Model Development 
 
-The augmented data is then used to train a CNN model using transfer learning. There are many popular architectures for transfer learning models that have proven successful as discussed in our literature review. As such, we investigated the following structures: VGG16, ResNet, DenseNet and Inception. Each of the models were incorporated with our small dataset, trained in separate experiments utilizing techniques to optimize the parameters of the model to maximize its ability to learn. To compare the performance of the different architectures, the team considered the accuracy and recall scores of the models when tested on our test set. 
+The augmented data is then used to train a CNN model using transfer learning, a technique utilizing pre-trained models on thousands of images, which allows for training with our comparatively smaller dataset. Based on our literature review, the transfer learning architectures we chose to investigate were the following: VGG16, ResNet50, DenseNet169 and InceptionV3. Each of the models were incorporated with our small dataset, trained in separate experiments utilizing techniques to optimize the parameters of the model to maximize its ability to learn. To compare the performance of the different architectures, the team considered the accuracy and recall scores of the models when tested on our test set. When comparing the relative scores of accuracy shown in {numref}`acc_chart` and recall shown in {numref}`recall_chart`, DenseNet outperformed the other architectures. DenseNet has also proved successful in similar deep learning applications using small datasets {cite:p}`zhang2020diagnostic`, which we suspect is due to its ability to reduce the parameters in a model.
 
 
 ```{figure} image/model_acc_bar_chart.png
@@ -93,9 +108,7 @@ name: recall_chart
 ---
 All four models were tested on a holdout sample to produce these recall results. 
 ```
-
-
-The model that utilizes the DenseNet architecture appears to be the best performing model for our dataset. Furthermore, we conducted a [manual analysis](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/model_decision_making.ipynb) of tricky negative and positive images to evaluate the models' performance using an interactive interface. This application allowed us to compare how confident the models were when misclassifying images and showcased the strengths of the DenseNet architecture. 
+Furthermore, we conducted a [manual analysis](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/model_decision_making.ipynb) of tricky negative and positive images to evaluate the models' performance using an interactive interface. This application, demonstrated below in {numref}`true_pos_all_wrong`, allowed us to compare how confident the models were when misclassifying images and showcased the strengths of the DenseNet architecture. 
 
 ```{figure} image/true_pos_all_wrong.png
 ---
@@ -104,12 +117,9 @@ name: true_pos_all_wrong
 ---
 A manual inspection of tricky examples was conducted. Above, we have a true positive and although, all model are struggling, DenseNet is the least confident in its wrong prediction.  
 ```
+In an effort to make the model more generalizable, we considered various techniques such as implementing dropout layers in our CNN structure, batch normalization and taking an ensemble approach. Furthermore, when identifying liphypertrophic masses, it is more detrimental for a true positive (areas where lipohypertrophy is present) to be falsely labelled as a negative. This is formally known as a false negative and thus, we also attempted to optimize recall, a score where a higher value indicates fewer false negatives. To find out more about these explorations and their outcomes, see [Appendix A - Documentation](../documentation.md).
 
-In an effort to reduce the generalization error and high confidence in misclassifications, we considered adding dropout layers in our CNN structure. Ideally, dropout layers drop nodes in the network such that the model learns more robustly and the validation performance is improved. Another way to reduce this error is to average the predictions from all four models, called an ensemble. However, an ensemble would not be feasible as it requires lots of resources such as enough CPU to train the models and in our case, since the models performed too similarily, the average accuracy would be lower. Although the dropout layers did manage to reduce misclassifications in the models, again the overall reduced accuracy was not remarkable enough to implement those layers in our optimal model. To see this exploration, click [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densemodels-ax-dropout-layers.ipynb).
-
-Furthermore, as our capstone partner was far more interested in reducing false negatives, areas where insulin should not be injected, we investigated various techniques to optimize recall. Positive weight (pos_weight) is one argument of the loss function used in our CNN model which, if greater than 1, prioritizes the positive examples more such that there is a heavier penalization (loss) on labelling the positive lipohypertrophy examples incorrectly. However, this method was not implemented in our final model as it proved to be unstable. After conducting a few experiments, we found high variance in the [results](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/pos-weight-exploration.ipynb). 
-
-Finally, the choice of our optimal model as DenseNet was further motivated by its size and compatibility with our data product, further discussed in the data product section.
+Finally, the choice of our optimal model as DenseNet was further motivated by its relatively small computational size as seen in {numref}`size_df` below, and its compatibility with our data product, further discussed in section {ref}`data-product`.
 
 ```{figure} image/size_df.png
 ---
@@ -121,7 +131,7 @@ Comparison of the file size of the different models revealed that DenseNet was t
 (obj-detect)=
 ### 4.3 Object Detection
 
-Our next objective was to implement object detection into our pipeline, giving us the ability to identify the exact location of lipohypertrophy on unseen test images. To implement object detection using a popular framework called YOLO, the team created bounding boxes around the location of the lipohypertrophy masses in the positive training images using the annotated ultrasound images as a guide. Next, using the YOLOv5 framework, the Yolov5m model was trained for 200 epochs with an image size of 320 and a batch size of 8. The team experimented with different training parameters to find that the aforementioned training parameters produce optimal results.
+Our next objective was to implement object detection into our pipeline, giving us the ability to identify the exact location of lipohypertrophy on unseen test images. To implement object detection using a popular framework called YOLO {cite:p}`glenn_jocher_2020_4154370`, the team created bounding boxes around the location of the lipohypertrophy masses in the positive training images using the annotated ultrasound images as a guide. Next, using the YOLOv5 framework, the YOLOv5m model was trained for 200 epochs with an image size of 300 and a batch size of 8. The team experimented with different training parameters to find that the aforementioned training parameters produce optimal results. Below is a sample of those results identifying the exact location of lipohypertrophy with great confidence.
 
 ```{figure} image/object_detect_example.png
 ---
