@@ -50,11 +50,11 @@ Throughout the project, the team has consulted literature to gain insight and di
 
 ### 3.1 Similar Work
 
-Prediction of masses in ultrasound images using machine learning techniques has been an ongoing effort in clinical practice for the past few decades. To assist physicians in diagnosing disease, many scholars have implemented techniques such as regression, decision trees, Naive Bayesian classifiers, and neural networks on patients' ultrasound imaging data {cite}`huang2018machine`. Further, many studies involving ultrasound images have preprocessed the images to extract features. This study {cite}`chiao2019detection` shows that CNNs using ultrasound images perform better than radiomic models at predicting breast cancer tumours. Another recent study shows success in classifying liver masses into 1 out 5 categories with 84% accuracy using a CNN model {cite}`yasaka2018deep`.
+Prediction of masses in ultrasound images using machine learning techniques has been an ongoing effort in clinical practice for the past few decades. To assist physicians in diagnosing disease, many scholars have implemented techniques such as regression, decision trees, Naive Bayesian classifiers, and neural networks on patients' ultrasound imaging data {cite}`huang2018machine`. Further, many studies involving ultrasound images have preprocessed the images to extract features. This study by {cite:t}`chiao2019detection` shows that CNNs using ultrasound images perform better than radiomic models at predicting breast cancer tumours. Another recent study shows success in classifying liver masses into 1 out 5 categories with 84% accuracy using a CNN model {cite}`yasaka2018deep`.
 
 Furthermore, recent research has delved into various complex image augmentation approaches such as using GANs to generate images {cite}`al2019deep`, enlarging the dataset used for training which naturally improves the performance. The study also found that traditional transformations managed to improve model performance. Many other studies such as {cite}`esteva2017, loey2020deep` confirmed that minimal transformations such as flipping the images achieved higher prediction accuracy in their application. 
 
-We also found that transfer learning architectures are crucial for yielding reliable results as any given patient's dataset is likely too small to construct a CNN architecture. This study by {cite:t}`sun2020deep` built a CNN using DenseNet models for the prediction of breast cancer masses and achieved a test accuracy of 91%. {cite:t}`zhang2020diagnostic` also studying the diagnosis of breast cancer tumours in ultrasound images found that when compared with other architectures such as InceptionV3, VGG16, ResNet50, and VGG19, InceptionV3 performs the best. Prediction competitions on Kaggle have proven successful with architectures such as VGG16 and Resnet, predicting masses in ultrasound images with 70-80% accuracy {cite}`kaggle2`. 
+We also found that transfer learning architectures are crucial for yielding reliable results as any given patient's dataset is likely too small to construct a CNN architecture. This study by {cite:t}`sun2020deep` built a CNN using DenseNet models for the prediction of breast cancer masses and achieved a test accuracy of 91%. {cite:t}`zhang2020diagnostic` also studying the diagnosis of breast cancer tumours in ultrasound images found that when compared with other architectures such as VGG16, ResNet50, and VGG19, InceptionV3 performs the best. Prediction competitions on Kaggle have proven successful with architectures such as VGG16 and Resnet, predicting masses in ultrasound images with 70-80% accuracy {cite}`kaggle2`. 
 
 For the object detection piece, along with the YOLO framework, we considered RCNNs but research showed YOLO performs well in Kaggle competitions {cite}`kaggle1` and is generally faster than RCNNs. As such, we went with the YOLO model {cite}`gandhi_2018`.
 
@@ -64,7 +64,7 @@ The general data science workflow for this project is shown in {numref}`workflow
 
 ```{figure} image/ds_workflow.png
 ---
-height: 500px
+height: 450px
 name: workflow
 ---
 General data science workflow for this capstone project. 
@@ -72,7 +72,7 @@ General data science workflow for this capstone project.
 (data-prep)= 
 ### 4.1 Data Preparation
 
-#### 4.1.1 Data Splitting
+#### 4.1.1 Data Splitting and Baseline Model
 
 Before beginning any model training, the data was split into train, validation and test splits of 70%, 15% and 15% respectively. Here, we define baseline as a model that only predicts negative and has 62% accuracy. Our goal for this project was to develop a model that performed better than baseline. 
 
@@ -90,7 +90,7 @@ Final image transformations included random vertical and horizontal flipping and
 (model-dev)=
 ### 4.2 Model Development 
 
-The augmented data is then used to train a CNN model using transfer learning, a technique utilizing pre-trained models on thousands of images, which allows for training with our comparatively smaller dataset. Based on our literature review, the transfer learning architectures we chose to investigate were the following: VGG16, ResNet50, DenseNet169 and InceptionV3. Each of the models were incorporated with our small dataset, trained in separate experiments utilizing techniques to optimize the parameters of the model to maximize its ability to learn. To compare the performance of the different architectures, the team considered the accuracy and recall scores of the models when tested on our test set. When comparing the relative scores of accuracy shown in {numref}`acc_chart` and recall shown in {numref}`recall_chart`, DenseNet outperformed the other architectures. DenseNet has also proved successful in similar deep learning applications using small datasets such as <add ref>[](https://link.springer.com/article/10.1007/s10278-020-00357-7#auth-Heqing-Zhang), which we suspect is due to its ability to reduce the parameters in a model.
+The augmented data is then used to train a CNN model using transfer learning, a technique utilizing pre-trained models on thousands of images, which allows for training with our comparatively smaller dataset. Based on our literature review, the transfer learning architectures we chose to investigate were the following: VGG16, ResNet50, DenseNet169 and InceptionV3. Each of the models were incorporated with our small dataset, trained in separate experiments utilizing techniques to optimize the parameters of the model to maximize its ability to learn. To compare the performance of the different architectures, the team considered the accuracy and recall scores of the models when tested on our test set. When comparing the relative scores of accuracy shown in {numref}`acc_chart` and recall shown in {numref}`recall_chart`, DenseNet outperformed the other architectures. DenseNet has also proved successful in similar deep learning applications using small datasets {cite:p}`zhang2020diagnostic`, which we suspect is due to its ability to reduce the parameters in a model.
 
 
 ```{figure} image/model_acc_bar_chart.png
@@ -119,7 +119,7 @@ A manual inspection of tricky examples was conducted. Above, we have a true posi
 ```
 In an effort to make the model more generalizable, we considered various techniques such as implementing dropout layers in our CNN structure, batch normalization and taking an ensemble approach. Furthermore, when identifying liphypertrophic masses, it is more detrimental for a true positive (areas where lipohypertrophy is present) to be falsely labelled as a negative. This is formally known as a false negative and thus, we also attempted to optimize recall, a score where a higher value indicates fewer false negatives. To find out more about these explorations and their outcomes, see [Appendix A - Documentation](../documentation.md).
 
-Finally, the choice of our optimal model as DenseNet was further motivated by its relaively small computational size as seen in {numref}`size_df` below, and its compatibility with our data product, further discussed in {ref}`data-product`.
+Finally, the choice of our optimal model as DenseNet was further motivated by its relatively small computational size as seen in {numref}`size_df` below, and its compatibility with our data product, further discussed in section {ref}`data-product`.
 
 ```{figure} image/size_df.png
 ---

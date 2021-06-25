@@ -18,7 +18,7 @@
 
 **RCNNs:** short for recurrent correlation neural networks, RCNNs are a machine learning model used for object detection. RCNNs learn the data but dividing it into sections and taking the most important features to then classify.
 
-**Radiomics:** a technique used to extract a large number of features from radiographic medical images such as ultrasound images
+**Radiomics:** a technique using data characterization algorithms to extract a large number of features from radiographic medical images such as ultrasound images.
 
 **Recall:** a ratio representing the number of true positives divided by the number of true positives plus the number of false negatives. Optimizing recall means to reduce the number of false negatives.
 

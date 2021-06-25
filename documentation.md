@@ -1,14 +1,14 @@
 ## Appendix A - Documentation
 
-In this section of the Appendix, we attempt to highlight at a high level, some of the decisions that were taken throughout the duration of this capstone project. This section presents some of the technical details behind those decisions.
+In this section of the Appendix, we attempt to highlight at a high level, some of the technical decisions that were taken throughout the duration of this capstone project. This section presents some of the technical details behind those decisions.
 
-### Data Augmentations 
+### Data Augmentation 
 
 The team initially used a web interface provided by the albumentations library, powered by PyTorch for image transformations, that allowed us to see what the different transformations would look like. Based on that, we chose some transformations to test in our pipeline. This experiment can be found [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb). The final model was chosen based on the transformations yielding the highest accuracy score.
 
 To use the albumentations library:
 
-- This [guide](https://albumentations.ai/docs/examples/pytorch_classification/) is extremely helpful for our classification task. You develop your own class that inherits from the torch dataset. To see an example of this implementation for our dataset, please check this [notebook](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/auto_exp1/notebooks/autoalbument.ipynb).
+- This [guide](https://albumentations.ai/docs/examples/pytorch_classification/) is extremely helpful for our classification task. You develop your own class that inherits from the torch dataset. To see an example of this implementation for our dataset, please check this [notebook](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/additional_work/autoalbument/autoalbument_attempt2.ipynb).
 
 We also tried a machine learning tool called [autoalbument](https://albumentations.ai/docs/autoalbument/) which allows for the selection of optimal transformations.
 
@@ -26,7 +26,7 @@ The following functions were considered for the choice of the loss function used
 
 Loss Function Implemeted in CNN Model:
 
-- BCEWithLogitsLoss: Cross-Entropy loss [nn.BCEWithLogitsLoss](https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss) combines a Sigmoid layer and the BCELoss in one single class. This loss function in often used in classification problems as a measure of reconstruction error. It uses log loss, which for logistic regression is a special case for cross-entropy loss for multi-class classification.
+- BCEWithLogitsLoss: Cross-Entropy loss [(nn.BCEWithLogitsLoss)](https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss) combines a Sigmoid layer and the BCELoss in one single class. This loss function in often used in classification problems as a measure of reconstruction error. It uses log loss, which for logistic regression is a special case for cross-entropy loss for multi-class classification.
 
 Alternative Loss Functions Considered:
 

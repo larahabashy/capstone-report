@@ -188,8 +188,8 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-augmentations">
-   Data Augmentations
+  <a class="reference internal nav-link" href="#data-augmentation">
+   Data Augmentation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -249,13 +249,13 @@
                 
   <div class="section" id="appendix-a-documentation">
 <h1>Appendix A - Documentation<a class="headerlink" href="#appendix-a-documentation" title="Permalink to this headline">¶</a></h1>
-<p>In this section of the Appendix, we attempt to highlight at a high level, some of the decisions that were taken throughout the duration of this capstone project. This section presents some of the technical details behind those decisions.</p>
-<div class="section" id="data-augmentations">
-<h2>Data Augmentations<a class="headerlink" href="#data-augmentations" title="Permalink to this headline">¶</a></h2>
+<p>In this section of the Appendix, we attempt to highlight at a high level, some of the technical decisions that were taken throughout the duration of this capstone project. This section presents some of the technical details behind those decisions.</p>
+<div class="section" id="data-augmentation">
+<h2>Data Augmentation<a class="headerlink" href="#data-augmentation" title="Permalink to this headline">¶</a></h2>
 <p>The team initially used a web interface provided by the albumentations library, powered by PyTorch for image transformations, that allowed us to see what the different transformations would look like. Based on that, we chose some transformations to test in our pipeline. This experiment can be found <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb">here</a>. The final model was chosen based on the transformations yielding the highest accuracy score.</p>
 <p>To use the albumentations library:</p>
 <ul class="simple">
-<li><p>This <a class="reference external" href="https://albumentations.ai/docs/examples/pytorch_classification/">guide</a> is extremely helpful for our classification task. You develop your own class that inherits from the torch dataset. To see an example of this implementation for our dataset, please check this <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/auto_exp1/notebooks/autoalbument.ipynb">notebook</a>.</p></li>
+<li><p>This <a class="reference external" href="https://albumentations.ai/docs/examples/pytorch_classification/">guide</a> is extremely helpful for our classification task. You develop your own class that inherits from the torch dataset. To see an example of this implementation for our dataset, please check this <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/additional_work/autoalbument/autoalbument_attempt2.ipynb">notebook</a>.</p></li>
 </ul>
 <p>We also tried a machine learning tool called <a class="reference external" href="https://albumentations.ai/docs/autoalbument/">autoalbument</a> which allows for the selection of optimal transformations.</p>
 </div>
@@ -272,7 +272,7 @@
 </ol>
 <p>Loss Function Implemeted in CNN Model:</p>
 <ul class="simple">
-<li><p>BCEWithLogitsLoss: Cross-Entropy loss <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss">nn.BCEWithLogitsLoss</a> combines a Sigmoid layer and the BCELoss in one single class. This loss function in often used in classification problems as a measure of reconstruction error. It uses log loss, which for logistic regression is a special case for cross-entropy loss for multi-class classification.</p></li>
+<li><p>BCEWithLogitsLoss: Cross-Entropy loss <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss">(nn.BCEWithLogitsLoss)</a> combines a Sigmoid layer and the BCELoss in one single class. This loss function in often used in classification problems as a measure of reconstruction error. It uses log loss, which for logistic regression is a special case for cross-entropy loss for multi-class classification.</p></li>
 </ul>
 <p>Alternative Loss Functions Considered:</p>
 <ul class="simple">
