@@ -26,19 +26,19 @@ The following functions were considered for the choice of the loss function used
 
 Loss Function Implemeted in CNN Model:
 
-- BCEWithLogitsLoss: Cross-Entropy loss [(nn.BCEWithLogitsLoss)](https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss) combines a Sigmoid layer and the BCELoss in one single class. This loss function in often used in classification problems as a measure of reconstruction error. It uses log loss, which for logistic regression is a special case for cross-entropy loss for multi-class classification.
+- **BCEWithLogitsLoss:** Cross-Entropy loss [(nn.BCEWithLogitsLoss)](https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss) combines a Sigmoid layer and the BCELoss in one single class. This loss function in often used in classification problems as a measure of reconstruction error. It uses log loss, which for logistic regression is a special case for cross-entropy loss for multi-class classification.
 
 Alternative Loss Functions Considered:
 
-- NLLLoss: Negative Log-Likelihood Loss
+- **NLLLoss:** Negative Log-Likelihood Loss
 This function expands the binary cross-entropy loss. It requires an additional logSoftMax layer in the last layer of the network. As it outputs probablities, they must sum to 1.
 The function also has various reduction of output options such as the weighted mean of output or sum.
 
-- Sum of Log Loss: This function allows for the gradient to update with more incentive
+- **Sum of Log Loss:** This function allows for the gradient to update with more incentive
 
-- Hinge: This function, nn.HingeEmbeddingLoss, is used more for measuring similarities. It tries to maximize the margin between decision boundary and data points. The main advantage is that the function penalizes incorrect predictions a lot but also correct ones that aren't confident (less). That is, confident correct predictions are not penalized at all.
+- **Hinge:** This function, nn.HingeEmbeddingLoss, is used more for measuring similarities. It tries to maximize the margin between decision boundary and data points. The main advantage is that the function penalizes incorrect predictions a lot but also correct ones that aren't confident (less). That is, confident correct predictions are not penalized at all.
 
-- L1 MAE: The mean absolute error
+- **L1 MAE:** The mean absolute error
 
 ### Structure of CNN Model
 
@@ -51,10 +51,10 @@ Based on our Liturature Review, the following transfer learning architectures we
 
 The model variants that were considered are documented below, along with some notes thought to be relevant.
 
-- VGG16: It makes the improvement over AlexNet by replacing large kernel-sized filters (**11** and **5** in the first and second convolutional layer, respectively) with multiple 3×3 kernel-sized filters one after another.
-- DenseNet121: DenseNet121 proved to be the best performing model given the Lipohypertrophy data. To see this exploration, click [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/model_decision_making.ipynb). 
-- ResNet50
-- InceptionV3
+- **VGG16:** It makes the improvement over AlexNet by replacing large kernel-sized filters (**11** and **5** in the first and second convolutional layer, respectively) with multiple 3×3 kernel-sized filters one after another.
+- **DenseNet121:** DenseNet121 proved to be the best performing model given the Lipohypertrophy data. To see this exploration, click [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/model_decision_making.ipynb). 
+- **ResNet50**
+- **InceptionV3**
 
 #### Batch Normalization
 We ensured all models have batch normalization implemented. This will standardize the inputs of a network improving the overall efficiency by reducing the number of epochs required to train for a given model.
@@ -82,8 +82,8 @@ Fit new surrogate model and repeat process.
 
 As a way to guide the surrogate model in the prediction of the next parameter configuration to explore, aquisition functions are utilizied. 
 - Three common examples include:
- 1. Probability of Improvement (PI).
- 2. Expected Improvement (EI).
+ 1. Probability of Improvement (PI)
+ 2. Expected Improvement (EI)
  3. Lower Confidence Bound (LCB)
  
 The most common technique used in Bayesian Optimization is the second choice: Expected Improvement. As such, that was used for our experiments found [here](https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densenet-optimized.ipynb).
@@ -91,7 +91,7 @@ The most common technique used in Bayesian Optimization is the second choice: Ex
 An Ax tutorial can be found [here](https://ax.dev/versions/latest/tutorials/tune_cnn.html).
 
 The main advantages to Bayesian Optimization are:
-- its ability to find better parameterizations with fewer iterations than grid search and;
+- its ability to find better parameterizations with fewer iterations than grid search and,
 - striking a balance between exploration and exploitation where exploration refers to trying out parameterization with high uncertainty in the outcome and exploitation refers to the surrogate model predicting likely parameterizations.
 
 In addition to our Bayesian experiments, we consulted results in the following papers regarding classical transformations applied to small:

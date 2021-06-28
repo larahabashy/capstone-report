@@ -270,16 +270,16 @@
 </ol>
 <p>Loss Function Implemeted in CNN Model:</p>
 <ul class="simple">
-<li><p>BCEWithLogitsLoss: Cross-Entropy loss <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss">(nn.BCEWithLogitsLoss)</a> combines a Sigmoid layer and the BCELoss in one single class. This loss function in often used in classification problems as a measure of reconstruction error. It uses log loss, which for logistic regression is a special case for cross-entropy loss for multi-class classification.</p></li>
+<li><p><strong>BCEWithLogitsLoss:</strong> Cross-Entropy loss <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss">(nn.BCEWithLogitsLoss)</a> combines a Sigmoid layer and the BCELoss in one single class. This loss function in often used in classification problems as a measure of reconstruction error. It uses log loss, which for logistic regression is a special case for cross-entropy loss for multi-class classification.</p></li>
 </ul>
 <p>Alternative Loss Functions Considered:</p>
 <ul class="simple">
-<li><p>NLLLoss: Negative Log-Likelihood Loss
+<li><p><strong>NLLLoss:</strong> Negative Log-Likelihood Loss
 This function expands the binary cross-entropy loss. It requires an additional logSoftMax layer in the last layer of the network. As it outputs probablities, they must sum to 1.
 The function also has various reduction of output options such as the weighted mean of output or sum.</p></li>
-<li><p>Sum of Log Loss: This function allows for the gradient to update with more incentive</p></li>
-<li><p>Hinge: This function, nn.HingeEmbeddingLoss, is used more for measuring similarities. It tries to maximize the margin between decision boundary and data points. The main advantage is that the function penalizes incorrect predictions a lot but also correct ones that aren’t confident (less). That is, confident correct predictions are not penalized at all.</p></li>
-<li><p>L1 MAE: The mean absolute error</p></li>
+<li><p><strong>Sum of Log Loss:</strong> This function allows for the gradient to update with more incentive</p></li>
+<li><p><strong>Hinge:</strong> This function, nn.HingeEmbeddingLoss, is used more for measuring similarities. It tries to maximize the margin between decision boundary and data points. The main advantage is that the function penalizes incorrect predictions a lot but also correct ones that aren’t confident (less). That is, confident correct predictions are not penalized at all.</p></li>
+<li><p><strong>L1 MAE:</strong> The mean absolute error</p></li>
 </ul>
 </div>
 <div class="section" id="structure-of-cnn-model">
@@ -293,10 +293,10 @@ The function also has various reduction of output options such as the weighted m
 </ol>
 <p>The model variants that were considered are documented below, along with some notes thought to be relevant.</p>
 <ul class="simple">
-<li><p>VGG16: It makes the improvement over AlexNet by replacing large kernel-sized filters (<strong>11</strong> and <strong>5</strong> in the first and second convolutional layer, respectively) with multiple 3×3 kernel-sized filters one after another.</p></li>
-<li><p>DenseNet121: DenseNet121 proved to be the best performing model given the Lipohypertrophy data. To see this exploration, click <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/model_decision_making.ipynb">here</a>.</p></li>
-<li><p>ResNet50</p></li>
-<li><p>InceptionV3</p></li>
+<li><p><strong>VGG16:</strong> It makes the improvement over AlexNet by replacing large kernel-sized filters (<strong>11</strong> and <strong>5</strong> in the first and second convolutional layer, respectively) with multiple 3×3 kernel-sized filters one after another.</p></li>
+<li><p><strong>DenseNet121:</strong> DenseNet121 proved to be the best performing model given the Lipohypertrophy data. To see this exploration, click <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/model_decision_making.ipynb">here</a>.</p></li>
+<li><p><strong>ResNet50</strong></p></li>
+<li><p><strong>InceptionV3</strong></p></li>
 </ul>
 <div class="section" id="batch-normalization">
 <h3>Batch Normalization<a class="headerlink" href="#batch-normalization" title="Permalink to this headline">¶</a></h3>
@@ -332,15 +332,15 @@ The function also has various reduction of output options such as the weighted m
 <li><p>Three common examples include:</p></li>
 </ul>
 <ol class="simple">
-<li><p>Probability of Improvement (PI).</p></li>
-<li><p>Expected Improvement (EI).</p></li>
+<li><p>Probability of Improvement (PI)</p></li>
+<li><p>Expected Improvement (EI)</p></li>
 <li><p>Lower Confidence Bound (LCB)</p></li>
 </ol>
 <p>The most common technique used in Bayesian Optimization is the second choice: Expected Improvement. As such, that was used for our experiments found <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densenet-optimized.ipynb">here</a>.</p>
 <p>An Ax tutorial can be found <a class="reference external" href="https://ax.dev/versions/latest/tutorials/tune_cnn.html">here</a>.</p>
 <p>The main advantages to Bayesian Optimization are:</p>
 <ul class="simple">
-<li><p>its ability to find better parameterizations with fewer iterations than grid search and;</p></li>
+<li><p>its ability to find better parameterizations with fewer iterations than grid search and,</p></li>
 <li><p>striking a balance between exploration and exploitation where exploration refers to trying out parameterization with high uncertainty in the outcome and exploitation refers to the surrogate model predicting likely parameterizations.</p></li>
 </ul>
 <p>In addition to our Bayesian experiments, we consulted results in the following papers regarding classical transformations applied to small:</p>
