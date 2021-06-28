@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Capstone Report</title>
+    <title>Final Report &#8212; Capstone Report</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,6 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Appendix A - Documentation" href="documentation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -64,8 +65,47 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-2 bd-sidebar site-navigation show single-page" id="site-navigation">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Capstone Report</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   Final Report
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="documentation.html">
+   Appendix A - Documentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="glossary.html">
+   Appendix B - Glossary
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -80,7 +120,33 @@
         <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
         <div class="col pl-md-4 topbar-main">
             
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
             
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/capstone-report.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
             <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -118,14 +184,75 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toctree-l1 toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="capstone-report.html#document-documentation">
-   Appendix A - Documentation
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#executive-summary">
+   1. Executive Summary
   </a>
  </li>
- <li class="toctree-l1 toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="capstone-report.html#document-glossary">
-   Appendix B - Glossary
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   2. Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#literature-review">
+   3. Literature Review
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#similar-work">
+     3.1 Similar Work
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-science-methods">
+   4. Data Science Methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-preparation">
+     4.1 Data Preparation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-splitting-and-baseline-model">
+       4.1.1 Data Splitting and Baseline Model
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#image-augmentation">
+       4.1.2 Image Augmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-development">
+     4.2 Model Development
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-detection">
+     4.3 Object Detection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-product-and-results">
+   5. Data Product and Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions-and-recommendations">
+   6. Conclusions and recommendations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliography">
+   Bibliography
   </a>
  </li>
 </ul>
@@ -222,7 +349,7 @@
 <a class="reference internal image-reference" href="_images/true_pos_all_wrong.png"><img alt="_images/true_pos_all_wrong.png" src="_images/true_pos_all_wrong.png" style="height: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">A manual inspection of tricky examples was conducted. Above, we have a true positive and although, all model are struggling, DenseNet is the least confident in its wrong prediction.</span><a class="headerlink" href="#true-pos-all-wrong" title="Permalink to this image">¶</a></p>
 </div>
-<p>In an effort to make the model more generalizable, we considered various techniques such as implementing dropout layers in our CNN structure, batch normalization and taking an ensemble approach. Furthermore, when identifying liphypertrophic masses, it is more detrimental for a true positive (areas where lipohypertrophy is present) to be falsely labelled as a negative. This is formally known as a false negative and thus, we also attempted to optimize recall, a score where a higher value indicates fewer false negatives. To find out more about these explorations and their outcomes, see <a class="reference internal" href="capstone-report.html#document-documentation"><span class="doc std std-doc">Appendix A - Documentation</span></a>.</p>
+<p>In an effort to make the model more generalizable, we considered various techniques such as implementing dropout layers in our CNN structure, batch normalization and taking an ensemble approach. Furthermore, when identifying liphypertrophic masses, it is more detrimental for a true positive (areas where lipohypertrophy is present) to be falsely labelled as a negative. This is formally known as a false negative and thus, we also attempted to optimize recall, a score where a higher value indicates fewer false negatives. To find out more about these explorations and their outcomes, see <a class="reference internal" href="documentation.html"><span class="doc std std-doc">Appendix A - Documentation</span></a>.</p>
 <p>Finally, the choice of our optimal model as DenseNet was further motivated by its relatively small computational size as seen in <a class="reference internal" href="#size-df"><span class="std std-numref">Fig. 8</span></a> below, and its compatibility with our data product, further discussed in section <a class="reference internal" href="#data-product"><span class="std std-ref">5. Data Product and Results</span></a>.</p>
 <div class="figure align-default" id="size-df">
 <a class="reference internal image-reference" href="_images/size_df.png"><img alt="_images/size_df.png" src="_images/size_df.png" style="height: 250px;" /></a>
@@ -328,129 +455,6 @@
 </p>
 </div>
 <div class="toctree-wrapper compound">
-<span id="document-documentation"></span><div class="section" id="appendix-a-documentation">
-<h2>Appendix A - Documentation<a class="headerlink" href="#appendix-a-documentation" title="Permalink to this headline">¶</a></h2>
-<p>In this section of the Appendix, we attempt to highlight at a high level, some of the technical decisions that were taken throughout the duration of this capstone project. This section presents some of the technical details behind those decisions.</p>
-<div class="section" id="data-augmentation">
-<h3>Data Augmentation<a class="headerlink" href="#data-augmentation" title="Permalink to this headline">¶</a></h3>
-<p>The team initially used a web interface provided by the albumentations library, powered by PyTorch for image transformations, that allowed us to see what the different transformations would look like. Based on that, we chose some transformations to test in our pipeline. This experiment can be found <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/manual-albumentation.ipynb">here</a>. The final model was chosen based on the transformations yielding the highest accuracy score.</p>
-<p>To use the albumentations library:</p>
-<ul class="simple">
-<li><p>This <a class="reference external" href="https://albumentations.ai/docs/examples/pytorch_classification/">guide</a> is extremely helpful for our classification task. You develop your own class that inherits from the torch dataset. To see an example of this implementation for our dataset, please check this <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/additional_work/autoalbument/autoalbument_attempt2.ipynb">notebook</a>.</p></li>
-</ul>
-<p>We also tried a machine learning tool called <a class="reference external" href="https://albumentations.ai/docs/autoalbument/">autoalbument</a> which allows for the selection of optimal transformations.</p>
-</div>
-<div class="section" id="loss-functions">
-<h3>Loss Functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">¶</a></h3>
-<p>A loss function, also known as cost function or error function, is a function that maps a set of parameter values for the network onto a scalar value. The scalar value is an indication of how well the parameters are completing their assigned tasks. In optimization problems, we seek to minimize the loss function.</p>
-<p>The following functions were considered for the choice of the loss function used in the convolutional neural network model:</p>
-<ol class="simple">
-<li><p>BCEWithLogitsLoss</p></li>
-<li><p>NLLLoss</p></li>
-<li><p>Sum of Log Loss</p></li>
-<li><p>Hinge</p></li>
-<li><p>The mean absolute error</p></li>
-</ol>
-<p>Loss Function Implemeted in CNN Model:</p>
-<ul class="simple">
-<li><p>BCEWithLogitsLoss: Cross-Entropy loss <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss">(nn.BCEWithLogitsLoss)</a> combines a Sigmoid layer and the BCELoss in one single class. This loss function in often used in classification problems as a measure of reconstruction error. It uses log loss, which for logistic regression is a special case for cross-entropy loss for multi-class classification.</p></li>
-</ul>
-<p>Alternative Loss Functions Considered:</p>
-<ul class="simple">
-<li><p>NLLLoss: Negative Log-Likelihood Loss
-This function expands the binary cross-entropy loss. It requires an additional logSoftMax layer in the last layer of the network. As it outputs probablities, they must sum to 1.
-The function also has various reduction of output options such as the weighted mean of output or sum.</p></li>
-<li><p>Sum of Log Loss: This function allows for the gradient to update with more incentive</p></li>
-<li><p>Hinge: This function, nn.HingeEmbeddingLoss, is used more for measuring similarities. It tries to maximize the margin between decision boundary and data points. The main advantage is that the function penalizes incorrect predictions a lot but also correct ones that aren’t confident (less). That is, confident correct predictions are not penalized at all.</p></li>
-<li><p>L1 MAE: The mean absolute error</p></li>
-</ul>
-</div>
-<div class="section" id="structure-of-cnn-model">
-<h3>Structure of CNN Model<a class="headerlink" href="#structure-of-cnn-model" title="Permalink to this headline">¶</a></h3>
-<p>Based on our Liturature Review, the following transfer learning architectures were considered:</p>
-<ol class="simple">
-<li><p>DenseNet</p></li>
-<li><p>Inception</p></li>
-<li><p>VGG</p></li>
-<li><p>ResNet</p></li>
-</ol>
-<p>The model variants that were considered are documented below, along with some notes thought to be relevant.</p>
-<ul class="simple">
-<li><p>VGG16: It makes the improvement over AlexNet by replacing large kernel-sized filters (<strong>11</strong> and <strong>5</strong> in the first and second convolutional layer, respectively) with multiple 3×3 kernel-sized filters one after another.</p></li>
-<li><p>DenseNet121: DenseNet121 proved to be the best performing model given the Lipohypertrophy data. To see this exploration, click <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/model_decision_making.ipynb">here</a>.</p></li>
-<li><p>ResNet50</p></li>
-<li><p>InceptionV3</p></li>
-</ul>
-<div class="section" id="batch-normalization">
-<h4>Batch Normalization<a class="headerlink" href="#batch-normalization" title="Permalink to this headline">¶</a></h4>
-<p>We ensured all models have batch normalization implemented. This will standardize the inputs of a network improving the overall efficiency by reducing the number of epochs required to train for a given model.</p>
-</div>
-<div class="section" id="dropout-layer">
-<h4>Dropout Layer<a class="headerlink" href="#dropout-layer" title="Permalink to this headline">¶</a></h4>
-<p>In an effort to reduce the generalization error and high confidence in misclassifications, we considered the implementation of dropout layers within the model’s architecture. Dropout layers will randomly drop nodes in the network such that the model learns more robustly and the validation performance is improved. A dropout rate can be specified to indicate the probablity at which nodes are dropped. The dropout layers experiments with varying dropout rates did not show any success for our dataset. Although the dropout layers managed to reduce misclassifications in the models, the overall reduced accuracy was not remarkable enough to implement those layers in our optimal model. To see this exploration, click <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densemodels-ax-dropout-layers.ipynb">here</a>.</p>
-</div>
-<div class="section" id="ensemble-model">
-<h4>Ensemble Model<a class="headerlink" href="#ensemble-model" title="Permalink to this headline">¶</a></h4>
-<p>Another way to reduce the generalization error is to average the predictions from all four models, called an ensemble. However, an ensemble would not be feasible as it requires lots of resources such as enough CPU to train the models and in our case, since the models performed too similarily, the average accuracy would be lower.</p>
-</div>
-<div class="section" id="recall-optimization">
-<h4>Recall Optimization<a class="headerlink" href="#recall-optimization" title="Permalink to this headline">¶</a></h4>
-<p>To reduce the generalization error, we considered varying the pos_weight argument in the loss function. Positive weight (pos_weight) is one argument of the loss function used in our CNN model which, if greater than 1, prioritizes the positive examples more such that there is a heavier penalization (loss) on labelling the positive lipohypertrophy examples incorrectly. Increasing the positive weights to more than 1, we would expect the recall score to improve since there would be heavier penalization (loss) on positive examples, in an attempt to reduce false negatives (a true positive where the model predicts is negative). However, this method was not implemented in our final model as it proved to be unstable. After conducting a few experiments, we found high variance in the <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/pos-weight-exploration.ipynb">results</a>.</p>
-</div>
-</div>
-<div class="section" id="hyperparameter-optimization">
-<h3>Hyperparameter Optimization<a class="headerlink" href="#hyperparameter-optimization" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="bayesian-optimization-with-ax">
-<h4>Bayesian Optimization with Ax<a class="headerlink" href="#bayesian-optimization-with-ax" title="Permalink to this headline">¶</a></h4>
-<p>The general idea with the Bayesian method is that not every possible parameterization in the defined parameter space is explored. The process tunes parameters in a few iterations by building a surrogate model. A surrogate model is a probablistic model that uses an acquisition function to direct the next sample to make up configurations where an improvement over the current best parameterization is likely. Bayesian Optimization with Ax, a recently developed package for optimization by Facebook, relies on information from previous trials to propose better hyperparameters in the next evaluation. The Gaussian process is as follows:</p>
-<ol class="simple">
-<li><p>Build “smooth” surrogate model using Gaussian processes (initially Gaussian with mean 0 and variance equal to the noise in data. The surrogate model updates to a Gaussian model with mean equal to the estimated mean and updated variance based on the previous trial.</p></li>
-<li><p>use the surrogate model to <strong>predict</strong> the next parameterization (estimated mean), out of the remaining ones and quantify uncertainty (updated estimated variance)</p></li>
-<li><p>combine predictions and estimates to derive an acquisition function and then optimize it to find the best configuration.</p></li>
-<li><p>Observe outcomes</p></li>
-</ol>
-<p>Fit new surrogate model and repeat process.</p>
-<p>As a way to guide the surrogate model in the prediction of the next parameter configuration to explore, aquisition functions are utilizied.</p>
-<ul class="simple">
-<li><p>Three common examples include:</p></li>
-</ul>
-<ol class="simple">
-<li><p>Probability of Improvement (PI).</p></li>
-<li><p>Expected Improvement (EI).</p></li>
-<li><p>Lower Confidence Bound (LCB)</p></li>
-</ol>
-<p>The most common technique used in Bayesian Optimization is the second choice: Expected Improvement. As such, that was used for our experiments found <a class="reference external" href="https://github.com/UBC-MDS/capstone-gdrl-lipo/blob/master/notebooks/densenet-optimized.ipynb">here</a>.</p>
-<p>An Ax tutorial can be found <a class="reference external" href="https://ax.dev/versions/latest/tutorials/tune_cnn.html">here</a>.</p>
-<p>The main advantages to Bayesian Optimization are:</p>
-<ul class="simple">
-<li><p>its ability to find better parameterizations with fewer iterations than grid search and;</p></li>
-<li><p>striking a balance between exploration and exploitation where exploration refers to trying out parameterization with high uncertainty in the outcome and exploitation refers to the surrogate model predicting likely parameterizations.</p></li>
-</ul>
-<p>In addition to our Bayesian experiments, we consulted results in the following papers regarding classical transformations applied to small:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.cs.ox.ac.uk/people/nando.defreitas/publications/BayesOptLoop.pdf">A Review of Bayesian Optimization</a></p></li>
-<li><p><a class="reference external" href="https://arxiv.org/pdf/1912.05686.pdf">Bayesian Hyperparameter Optimization with BoTorch, GPyTorch and Ax</a>.</p></li>
-</ul>
-</div>
-</div>
-</div>
-<span id="document-glossary"></span><div class="section" id="appendix-b-glossary">
-<h2>Appendix B - Glossary<a class="headerlink" href="#appendix-b-glossary" title="Permalink to this headline">¶</a></h2>
-<p><strong>CPU:</strong> stands for for Central Processing Unit, is a portion of a computer that retrieves and executes instructions. CPU’s are used in this context to execute a sequence of stored instructions (commands).</p>
-<p><strong>Ensemble Learning:</strong> the use of combining multiple learning algorithms to obtain improved predictive performance than any individual learning algorithm predictive performance. In this context, an ensemble approach could be achieved by averaging the predictions from multiple models.</p>
-<p><strong>Epochs:</strong> a number defining the number of times that the learning algorithm will pass through the entire training dataset.</p>
-<p><strong>Executable:</strong> a file or program with the ability to be run by a computer.</p>
-<p><strong>False positive:</strong> a false positive, also referred to as type I error in Statistics, is an error in prediction where a negative example is misclassified as a positive example. In this context, a false positive is an indication of a Lipohypertrophy mass when there is none in reality.</p>
-<p><strong>False negative:</strong> a false negative, also referred to as type II error in Statistics, is an error in prediction where a positive example is misclassified as a negative one. In this context, a false negative is an indication of a no Lipohypertrophy presence when there is in reality.</p>
-<p><strong>GAN:</strong> short for Generative Adversarial Network, GANs are a machine learning model where two neural networks compete against each other. In this context, GANs can be used to develop authentic-looking but fake images of ultrasounds to build a large dataset that can be used for future applications.</p>
-<p><strong>Gaussian process:</strong> a Gaussian process is a stochastic process, a collection of random variables with a time or space component, that allows finite collection of random variables to have a multivariate normal (bell-shaped) distribution. That is, every finite linear combination of random variables is normally distributed.</p>
-<p><strong>RCNNs:</strong> short for recurrent correlation neural networks, RCNNs are a machine learning model used for object detection. RCNNs learn the data but dividing it into sections and taking the most important features to then classify.</p>
-<p><strong>Radiomics:</strong> a technique using data characterization algorithms to extract a large number of features from radiographic medical images such as ultrasound images.</p>
-<p><strong>Recall:</strong> a ratio representing the number of true positives divided by the number of true positives plus the number of false negatives. Optimizing recall means to reduce the number of false negatives.</p>
-<p><strong>Transfer learning:</strong> a technique that allows us to leverage pre-existing models that have already been trained on thousands of images from various data sources and applying them to our dataset.</p>
-<p><strong>Sigmoid layer:</strong> a sigmoid layer in a neural network applies a sigmoid function to the input such that the output is bounded in the interval (0,1).</p>
-<p><strong>YOLO:</strong> short for You Only Look Once, YOLO is an object detection framework that uses convolutional neural networks to train on images and optimize detection performance in real-time.</p>
-</div>
 </div>
 </div>
 
@@ -479,6 +483,7 @@ The function also has various reduction of output options such as the weighted m
         
         <div class='prev-next-bottom'>
             
+    <a class='right-next' id="next-link" href="documentation.html" title="next page">Appendix A - Documentation</a>
 
         </div>
         
