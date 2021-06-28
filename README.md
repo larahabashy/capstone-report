@@ -7,7 +7,7 @@ This repository hosts all the files and scripts needed to run, generate, and pub
 
 ## Usage
 To re-generate this report, follow these steps:
-1. First, you will need to install Jupyter Book via pip. Refer to (this)[https://jupyterbook.org/intro.html] manual to get started. Ensure Anaconda Python is installed.
+1. First, you will need to install Jupyter Book via pip. Refer to [this](https://jupyterbook.org/intro.html) manual to get started. Ensure Anaconda Python is installed.
 2. Clone this repository by running the following commands from your terminal line:
 `git clone https://github.com/larahabashy/capstone-report.git`
 `cd capstone-report`
