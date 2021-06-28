@@ -15,7 +15,7 @@ To re-generate this report, follow these steps:
 <br>`conda env create -f environment.yml`
 <br>`conda activate report_env`
 4. Compile the report component by running the following command from the root directory:
-<br>`jupyter-book build ./capstone-report` <br> This allows you to view an html rendered version of the book on your browser of choice
+<br>`jupyter-book build ./capstone-report` <br> This allows you to view an html rendered version of the book on your browser of choice.
 5. Publish the report on GitHub pages by running the following two commands:
 <br> `pip install ghp-import`
 <br> `ghp-import -n -p -f _build/html`
